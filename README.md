@@ -19,6 +19,7 @@
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+1. [API](#API)
 
 ## Usage
 > npm install
@@ -32,7 +33,6 @@ Ensure database is running and address and port are correct in ./.env
 Instructors relies on Images service for data
 
 Ensure URL's are correct in ./client/components/instructors/instructors.jsx for instructors service to render images properly.
-
 
 ## Development
 
@@ -56,3 +56,44 @@ npm install -g webpack
 npm install
 ```
 
+## API
+
+### Create
+
+Endpoint | Type | Expected input
+--- | --- | ---
+'/api/addinstructor' | POST |
+'/api/addinstructors' | POST |
+'/api/addofferedby' | POST |
+'/api/addofferedbys' | POST |
+'/api/addtestimonal' | POST |
+'/api/addtestimonals' | POST |
+
+### Read
+
+Endpoint | Type | Response
+--- | --- | ---
+'/api/allinstructors' | GET | [{<br>  id: Number,<br>  firstName: String,<br>  middleInitial: String,<br>  lastName: String,<br>  academicTitle: String,<br>  title: String,<br>  organization: String,<br>  learners: Number,<br>  courses: [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }],<br>  instructorAverageRating: String,<br>  numberOfRatings: Number<br>}]
+'/api/instructors/:courseNumber' | GET | {<br>  id: Number,<br>  firstName: String,<br>  middleInitial: String,<br>  lastName: String,<br>  academicTitle: String,<br>  title: String,<br>  organization: String,<br>  learners: Number,<br>  courses: [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }],<br>  instructorAverageRating: String,<br>  numberOfRatings: Number<br>}
+'/api/primaryInstructor/:courseNumber' | GET | {<br>_id: Number,<br>firstName: String,<br>...<br>numberOfRatings: Number<br>}
+'/api/offeredByAll' | GET | [{<br>  id: Number,<br>  offeredByIndex: Number,<br>  offeredByName: String,<br>  offeredByDescription: String,<br>}]
+'/api/offeredBy/:courseNumber' | GET | {<br>  id: Number,<br>  offeredByName: String,<br>  offeredByDescription: String<br>}
+'/api/testimonials/:courseNumber' | GET | [{<br>  id: Number,<br>  name: String,<br>  testimonialText: String<br>}]
+
+### Update
+
+Endpoint | Type | Expected input
+--- | --- | ---
+'/api/editinstructor/:instructorid/details' | PUT |
+'/api/editinstructor/:instructorid/addcourse' | PUT |
+'/api/editinstructor/:instructorid/removecourse' | PUT |
+'/api/editofferedby/:offeredbyid' | PUT |
+'/api/edittestimonal/:testimonialid' | PUT |
+
+### Delete
+
+Endpoint | Type | Expected input
+--- | --- | ---
+'/api/deleteinstructor/:instructorid' | DELETE |
+'/api/deleteofferedby/:offeredbyid' | DELETE |
+'/api/deletetestimonal/:testimonialid' | DELETE |
