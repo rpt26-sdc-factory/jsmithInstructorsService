@@ -22,7 +22,7 @@
     "react-dev": "webpack --watch",
     "build": "webpack",
     "build-prod": "webpack --mode=production"
-    },
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
