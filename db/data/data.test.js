@@ -2,9 +2,9 @@ const instructorsData = require('./instructors.json');
 const offeredBysData = require('./offeredBys.json');
 const testimonialsData = require('./testimonials.json');
 
-const instructorsModel = require('../models/instructorsModel.js');
-const offeredBysModel = require('../models/offeredBysModel.js');
-const testimonialsModel = require('../models/testimonialsModel.js');
+const instructorsModel = require('../models.js').InstructorsModel;
+const offeredBysModel = require('../models.js').OfferedBysModel;
+const testimonialsModel = require('../models.js').TestimonialsModel;
 
 const db = require('../index.js');
 
