@@ -23,3 +23,9 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+# Others
+*.env
+*.sh
+*.cer
+*.pem
