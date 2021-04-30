@@ -62,12 +62,12 @@ npm install
 
 Endpoint | Type | Expected input
 --- | --- | ---
-'/api/addinstructor' | POST |
-'/api/addinstructors' | POST |
-'/api/addofferedby' | POST |
-'/api/addofferedbys' | POST |
-'/api/addtestimonal' | POST |
-'/api/addtestimonals' | POST |
+'/api/addinstructor' | POST | {<br>  id: Number,<br>  firstName: String,<br>  middleInitial: String,<br>  lastName: String,<br>  academicTitle: String,<br>  title: String,<br>  organization: String,<br>  learners: Number,<br>  courses: [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }],<br>  instructorAverageRating: String,<br>  numberOfRatings: Number<br>}
+'/api/addinstructors' | POST | [{<br>  id: Number,<br>  firstName: String,<br>  middleInitial: String,<br>  lastName: String,<br>  academicTitle: String,<br>  title: String,<br>  organization: String,<br>  learners: Number,<br>  courses: [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }],<br>  instructorAverageRating: String,<br>  numberOfRatings: Number<br>}]
+'/api/addofferedby' | POST | {<br>  id: Number,<br>  offeredByIndex: Number,<br>  offeredByName: String,<br>  offeredByDescription: String,<br>}
+'/api/addofferedbys' | POST | [{<br>  id: Number,<br>  offeredByIndex: Number,<br>  offeredByName: String,<br>  offeredByDescription: String,<br>}]
+'/api/addtestimonal' | POST |{<br>  id: Number,<br>  name: String,<br>  testimonialText: String<br>}
+'/api/addtestimonals' | POST | [{<br>  id: Number,<br>  name: String,<br>  testimonialText: String<br>}]
 
 ### Read
 
@@ -84,16 +84,18 @@ Endpoint | Type | Response
 
 Endpoint | Type | Expected input
 --- | --- | ---
-'/api/editinstructor/:instructorid/details' | PUT |
-'/api/editinstructor/:instructorid/addcourse' | PUT |
-'/api/editinstructor/:instructorid/removecourse' | PUT |
-'/api/editofferedby/:offeredbyid' | PUT |
-'/api/edittestimonal/:testimonialid' | PUT |
+'/api/editinstructor/:instructorid/details' | PUT | {<br>  id: Number,<br>  firstName: String,<br>  middleInitial: String,<br>  lastName: String,<br>  academicTitle: String,<br>  title: String,<br>  organization: String,<br>  learners: Number,<br>  courses: [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }],<br>  instructorAverageRating: String,<br>  numberOfRatings: Number<br>}
+'/api/editinstructor/:instructorid/addcourse' | PUT | {<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }
+'/api/editinstructor/:instructorid/addcourses' | PUT | [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }]
+'/api/editinstructor/:instructorid/removecourse' | PUT | {<br>    courseNumber: Number<br>  }
+'/api/editinstructor/:instructorid/removecourses' | PUT | [{<br>    courseNumber: Number<br>  }]
+'/api/editofferedby/:offeredbyid' | PUT | {<br>  id: Number,<br>  offeredByName: String,<br>  offeredByDescription: String<br>}
+'/api/edittestimonal/:testimonialid' | PUT | {<br>  id: Number,<br>  offeredByName: String,<br>  offeredByDescription: String<br>}
 
 ### Delete
 
 Endpoint | Type | Expected input
 --- | --- | ---
-'/api/deleteinstructor/:instructorid' | DELETE |
-'/api/deleteofferedby/:offeredbyid' | DELETE |
-'/api/deletetestimonal/:testimonialid' | DELETE |
+'/api/deleteinstructor/:instructorid' | DELETE | {<br>  id: Number<br>}
+'/api/deleteofferedby/:offeredbyid' | DELETE | {<br>  id: Number<br>}
+'/api/deletetestimonal/:testimonialid' | DELETE | {<br>  id: Number<br>}
