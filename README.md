@@ -81,7 +81,7 @@ Endpoint | Type | Response
 
 Endpoint | Type | Expected input
 --- | --- | ---
-'/api/editinstructor/:instructorid/details' | PUT | {<br>  id: Number,<br>  firstName: String,<br>  middleInitial: String,<br>  lastName: String,<br>  academicTitle: String,<br>  title: String,<br>  organization: String,<br>  learners: Number,<br>  courses: [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }],<br>  instructorAverageRating: String,<br>  numberOfRatings: Number<br>}
+'/api/editinstructor/:instructorid' | PUT | {<br>  id: Number,<br>  firstName: String,<br>  middleInitial: String,<br>  lastName: String,<br>  academicTitle: String,<br>  title: String,<br>  organization: String,<br>  learners: Number,<br>  courses: [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }],<br>  instructorAverageRating: String,<br>  numberOfRatings: Number<br>}
 '/api/editinstructor/:instructorid/addcourse' | PUT | {<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }
 '/api/editinstructor/:instructorid/addcourses' | PUT | [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }]
 '/api/editinstructor/:instructorid/removecourse' | PUT | {<br>    courseNumber: Number<br>  }
