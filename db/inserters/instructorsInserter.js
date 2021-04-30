@@ -1,16 +1,11 @@
 /* eslint-disable no-console */
 const Promise = require('bluebird');
-const instructorsData = require('../data/instructors.json');
 const { InstructorsModel } = require('../models.js');
 
-const instructorsInsert = Promise.promisify(() => {
-  InstructorsModel.insertMany(instructorsData, (err) => {
-    if (err) {
-      console.error(err);
-    }
-    console.log('instructorsInsert success');
-  });
+const instructorsInsert = Promise.promisify((data, cb) => {
+  InstructorsModel.insertMany(data)
+    .then((results) => cb(null, results))
+    .catch((err) => cb(err));
 });
 
-instructorsInsert();
 module.exports = instructorsInsert;
