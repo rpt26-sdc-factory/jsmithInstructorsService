@@ -1,17 +1,16 @@
 /* eslint-disable no-console */
-const mongoose = require('mongoose');
+const Promise = require('bluebird');
 const instructorsData = require('../data/instructors.json');
 const { InstructorsModel } = require('../models.js');
 
-const instructorsInsert = () => {
+const instructorsInsert = Promise.promisify(() => {
   InstructorsModel.insertMany(instructorsData, (err) => {
     if (err) {
       console.error(err);
     }
     console.log('instructorsInsert success');
-    mongoose.connection.close();
   });
-};
+});
 
 instructorsInsert();
 module.exports = instructorsInsert;
