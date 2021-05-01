@@ -3,18 +3,23 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
-const instructorsInsert = require('../db/inserters/instructorsInserter.js');
-const offeredBysInsert = require('../db/inserters/offeredBysInserter.js');
-const testimonialsInsert = require('../db/inserters/testimonialsInserter.js');
-const { getAllInstructors, getInstructors, getPrimaryInstructor } = require('../db/getters/instructorsGetters.js');
-const { getAllOfferedBys, getOfferedBys } = require('../db/getters/offeredBysGetters.js');
-const getTestimonials = require('../db/getters/testimonialsGetters.js');
-const setInstructor = require('../db/setters/instructorsSetters.js');
-const setOfferedBy = require('../db/setters/offeredBysSetters.js');
-const setTestimonial = require('../db/setters/testimonialsSetters.js');
-const deleteInstructor = require('../db/deleters/instructorsDeleters.js');
-const deleteOfferedBy = require('../db/deleters/offeredBysDeleters.js');
-const deleteTestimonial = require('../db/deleters/testimonialsDeleters.js');
+const {
+  instructorsInsert,
+  offeredBysInsert,
+  testimonialsInsert,
+  getAllInstructors,
+  getInstructors,
+  getPrimaryInstructor,
+  getAllOfferedBys,
+  getOfferedBys,
+  getTestimonials,
+  setInstructor,
+  setOfferedBy,
+  setTestimonial,
+  deleteInstructor,
+  deleteOfferedBy,
+  deleteTestimonial,
+} = require('../db/methods.js');
 
 const app = express();
 
@@ -29,21 +34,21 @@ app.get('/:courseNumber', (req, res) => {
 
 // CREATE
 // Expects an array of instructor objects
-app.post('/api/addinstructors', (req, res) => {
+app.post('/api/instructors', (req, res) => {
   instructorsInsert(req.body)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
 // Expects an array of offeredBy objects
-app.post('/api/addofferedbys', (req, res) => {
+app.post('/api/offeredbys', (req, res) => {
   offeredBysInsert(req.body)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
 // Expects an array of testimonial objects
-app.post('/api/addtestimonals', (req, res) => {
+app.post('/api/testimonals', (req, res) => {
   testimonialsInsert(req.body)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
@@ -66,21 +71,21 @@ app.get('/api/instructors/:courseNumbers', (req, res) => {
 });
 
 // returns the primary instructor for a course
-app.get('/api/primaryInstructor/:courseNumber', (req, res) => {
+app.get('/api/primaryinstructor/:courseNumber', (req, res) => {
   getPrimaryInstructor(parseInt(req.params.courseNumber, 10))
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
 // returns all offeredBy documents for all courses
-app.get('/api/offeredByAll', (req, res) => {
+app.get('/api/offeredbyall', (req, res) => {
   getAllOfferedBys()
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
 // returns the offeredBy per course
-app.get('/api/offeredBy/:courseNumbers', (req, res) => {
+app.get('/api/offeredbys/:courseNumbers', (req, res) => {
   const courseNumbers = req.params.courseNumbers.split(',').map((id) => parseInt(id, 10));
   getOfferedBys(courseNumbers)
     .then((dbResponse) => res.send(dbResponse))
@@ -96,38 +101,38 @@ app.get('/api/testimonials/:courseNumbers', (req, res) => {
 });
 
 // UPDATE
-app.put('/api/editinstructor/:instructorid', (req, res) => {
+app.put('/api/instructors/:instructorid', (req, res) => {
   setInstructor(parseInt(req.params.instructorid, 10), req.body)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
-app.put('/api/editofferedby/:offeredbyid', (req, res) => {
+app.put('/api/offeredbys/:offeredbyid', (req, res) => {
   setOfferedBy(parseInt(req.params.offeredbyid, 10), req.body)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
-app.put('/api/edittestimonal/:testimonialid', (req, res) => {
+app.put('/api/testimonials/:testimonialid', (req, res) => {
   setTestimonial(parseInt(req.params.testimonialid, 10), req.body)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
 // DELETE
-app.delete('/api/deleteinstructor/:instructorid', (req, res) => {
+app.delete('/api/instructors/:instructorid', (req, res) => {
   deleteInstructor(parseInt(req.params.instructorid, 10))
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
-app.delete('/api/deleteofferedby/:courseNumber', (req, res) => {
+app.delete('/api/offeredbys/:courseNumber', (req, res) => {
   deleteOfferedBy(parseInt(req.params.courseNumber, 10))
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
-app.delete('/api/deletetestimonal/:testimonialid', (req, res) => {
+app.delete('/api/testimonals/:testimonialid', (req, res) => {
   deleteTestimonial(parseInt(req.params.testimonialid, 10))
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
