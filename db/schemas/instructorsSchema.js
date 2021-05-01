@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const instructorsSchema = new Schema({
-  id: Number,
+  _id: Number,
   firstName: String,
   middleInitial: String,
   lastName: String,
