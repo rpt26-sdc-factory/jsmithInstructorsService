@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+const courses = new Schema({
+  courseNumber: Number,
+  isPrimaryInstructor: Boolean,
+}, { _id: false });
+
 const instructorsSchema = new Schema({
   _id: Number,
   firstName: String,
@@ -11,10 +16,7 @@ const instructorsSchema = new Schema({
   title: String,
   organization: String,
   learners: Number,
-  courses: [{
-    courseNumber: Number,
-    isPrimaryInstructor: Boolean,
-  }],
+  courses: [courses],
   instructorAverageRating: String,
   numberOfRatings: Number,
 });
