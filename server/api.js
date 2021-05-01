@@ -58,8 +58,9 @@ app.get('/api/allinstructors', (req, res) => {
 });
 
 // returns an array of instructors that belong to a course
-app.get('/api/instructors/:courseNumber', (req, res) => {
-  getInstructors(parseInt(req.params.courseNumber, 10))
+app.get('/api/instructors/:courseNumbers', (req, res) => {
+  const courseNumbers = req.params.courseNumbers.split(',').map((id) => parseInt(id, 10));
+  getInstructors(courseNumbers)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
@@ -73,21 +74,23 @@ app.get('/api/primaryInstructor/:courseNumber', (req, res) => {
 
 // returns all offeredBy documents for all courses
 app.get('/api/offeredByAll', (req, res) => {
-  getAllOfferedBys(parseInt(req.params.courseNumber, 10))
+  getAllOfferedBys()
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
-// returns the offeredBy for a course
-app.get('/api/offeredBy/:courseNumber', (req, res) => {
-  getOfferedBys(parseInt(req.params.courseNumber, 10))
+// returns the offeredBy per course
+app.get('/api/offeredBy/:courseNumbers', (req, res) => {
+  const courseNumbers = req.params.courseNumbers.split(',').map((id) => parseInt(id, 10));
+  getOfferedBys(courseNumbers)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
 
-// returns three random testimonials
-app.get('/api/testimonials/:courseNumber', (req, res) => {
-  getTestimonials(parseInt(req.params.courseNumber, 10))
+// returns three random testimonials per course
+app.get('/api/testimonials/:courseNumbers', (req, res) => {
+  const courseNumbers = req.params.courseNumbers.split(',').map((id) => parseInt(id, 10));
+  getTestimonials(courseNumbers)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
