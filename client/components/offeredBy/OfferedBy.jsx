@@ -37,7 +37,7 @@ const OfferedBy = () => {
   const imagesPort = 3006;
   //GET and set instructors data for this course as state
   useEffect(() => {
-    fetch(`http://localhost:${offeredByPort}/api/offeredBy/${courseNumber}`)
+    fetch(`http://localhost:${offeredByPort}/api/offeredbys/${courseNumber}`)
       .then((offeredByResponse) => offeredByResponse.json())
       .then((offeredByJSON) => {
         setOfferedByData(offeredByJSON);
