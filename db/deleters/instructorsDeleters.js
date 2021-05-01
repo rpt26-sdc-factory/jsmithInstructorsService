@@ -1,10 +1,10 @@
 const Promise = require('bluebird');
 const { InstructorsModel } = require('../models.js');
 
-const deleteInstructor = Promise.promisify((id, update, cb) => {
+const deleteInstructor = Promise.promisify((id, cb) => {
   InstructorsModel.findByIdAndRemove(id)
-    .then((results) => {
-      cb(null, results);
+    .then(() => {
+      cb(null, 'Successfully deleted.');
     })
     .catch((err) => cb(err));
 });
