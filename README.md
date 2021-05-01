@@ -81,14 +81,14 @@ Endpoint | Type | Response
 
 Endpoint | Type | Expected input
 --- | --- | ---
-'/api/editinstructor/:instructorid' | PUT | {<br>  _id: Number,<br>  firstName: String,<br>  middleInitial: String,<br>  lastName: String,<br>  academicTitle: String,<br>  title: String,<br>  organization: String,<br>  learners: Number,<br>  courses: [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }],<br>  instructorAverageRating: String,<br>  numberOfRatings: Number<br>}
-'/api/editofferedby/:offeredbyid' | PUT | {<br>  _id: Number,<br>  offeredByName: String,<br>  offeredByDescription: String<br>}
-'/api/edittestimonal/:testimonialid' | PUT | {<br>  _id: Number,<br>  courseNumber: Number,<br>  name: String,<br>  testimonialText: String<br>}
+'/api/editinstructor/:instructorid' | PUT | {<br>  firstName: String,<br>  middleInitial: String,<br>  lastName: String,<br>  academicTitle: String,<br>  title: String,<br>  organization: String,<br>  learners: Number,<br>  courses: [{<br>    courseNumber: Number,<br>    isPrimaryInstructor: Boolean<br>  }],<br>  instructorAverageRating: String,<br>  numberOfRatings: Number<br>}
+'/api/editofferedby/:offeredbyid' | PUT | {<br>  offeredByName: String,<br>  offeredByDescription: String<br>}
+'/api/edittestimonal/:testimonialid' | PUT | {<br>  courseNumber: Number,<br>  name: String,<br>  testimonialText: String<br>}
 
 ### Delete
 
-Endpoint | Type | Expected input
---- | --- | ---
-'/api/deleteinstructor/:instructorid' | DELETE | {<br>  _id: Number<br>}
-'/api/deleteofferedby/:courseNumber' | DELETE | {<br>  _id: Number<br>}
-'/api/deletetestimonal/:testimonialid' | DELETE | {<br>  _id: Number<br>}
+Endpoint | Type
+--- | ---
+'/api/deleteinstructor/:instructorid' | DELETE
+'/api/deleteofferedby/:courseNumber' | DELETE
+'/api/deletetestimonal/:testimonialid' | DELETE
