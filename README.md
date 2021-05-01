@@ -90,5 +90,5 @@ Endpoint | Type | Expected input
 Endpoint | Type | Expected input
 --- | --- | ---
 '/api/deleteinstructor/:instructorid' | DELETE | {<br>  id: Number<br>}
-'/api/deleteofferedby/:offeredbyid' | DELETE | {<br>  id: Number<br>}
+'/api/deleteofferedby/:courseNumber' | DELETE | {<br>  id: Number<br>}
 '/api/deletetestimonal/:testimonialid' | DELETE | {<br>  id: Number<br>}
