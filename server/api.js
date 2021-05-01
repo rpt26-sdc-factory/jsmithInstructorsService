@@ -52,78 +52,82 @@ app.post('/api/addtestimonals', (req, res) => {
 // READ
 // returns all instructors documents
 app.get('/api/allinstructors', (req, res) => {
-  getAllInstructors((err, dbResponse) => {
-    if (err) {
-      res.send(err).status(400);
-    } else {
-      res.send(dbResponse);
-    }
-  });
+  getAllInstructors()
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
 // returns an array of instructors that belong to a course
 app.get('/api/instructors/:courseNumber', (req, res) => {
-  getInstructors(parseInt(req.params.courseNumber, 10), (dbResponse) => {
-    res.send(dbResponse);
-  });
+  getInstructors(parseInt(req.params.courseNumber, 10))
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
 // returns the primary instructor for a course
 app.get('/api/primaryInstructor/:courseNumber', (req, res) => {
-  getPrimaryInstructor(parseInt(req.params.courseNumber, 10), (dbResponse) => {
-    res.send(dbResponse);
-  });
+  getPrimaryInstructor(parseInt(req.params.courseNumber, 10))
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
 // returns all offeredBy documents for all courses
 app.get('/api/offeredByAll', (req, res) => {
-  getAllOfferedBys((err, dbResponse) => {
-    if (err) {
-      res.send(err).status(400);
-    } else {
-      res.send(dbResponse);
-    }
-  });
+  getAllOfferedBys(parseInt(req.params.courseNumber, 10))
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
 // returns the offeredBy for a course
 app.get('/api/offeredBy/:courseNumber', (req, res) => {
-  getOfferedBys(parseInt(req.params.courseNumber, 10), (dbResponse) => {
-    res.send(dbResponse);
-  });
+  getOfferedBys(parseInt(req.params.courseNumber, 10))
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
 // returns three random testimonials
 app.get('/api/testimonials/:courseNumber', (req, res) => {
-  getTestimonials(parseInt(req.params.courseNumber, 10), (dbResponse) => {
-    res.send(dbResponse);
-  });
+  getTestimonials(parseInt(req.params.courseNumber, 10))
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
 // UPDATE
-app.put('', (req, res) => {
-  test
+app.put('/api/editinstructor/:instructorid', (req, res) => {
+  setInstructor(parseInt(req.params.instructorid, 10), req.body)
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
-app.put('', (req, res) => {
-  test
+app.put('/api/editofferedby/:offeredbyid', (req, res) => {
+  setOfferedBy(parseInt(req.params.offeredbyid, 10), req.body)
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
-app.put('', (req, res) => {
-  test
+app.put('/api/edittestimonal/:testimonialid', (req, res) => {
+  setTestimonial(parseInt(req.params.testimonialid, 10), req.body)
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
 // DELETE
-app.delete('', (req, res) => {
-  test
+app.delete('/api/deleteinstructor/:instructorid', (req, res) => {
+  deleteInstructor(parseInt(req.params.instructorid, 10))
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
-app.delete('', (req, res) => {
-  test
+app.delete('/api/deleteofferedby/:courseNumber', (req, res) => {
+  deleteOfferedBy(parseInt(req.params.courseNumber, 10))
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
-app.delete('', (req, res) => {
-  test
+app.delete('/api/deletetestimonal/:testimonialid', (req, res) => {
+  deleteTestimonial(parseInt(req.params.testimonialid, 10))
+    .then((dbResponse) => res.send(dbResponse))
+    .catch((err) => res.send(err).status(400));
 });
 
 module.exports = app;
