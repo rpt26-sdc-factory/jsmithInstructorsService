@@ -7,4 +7,11 @@
 
 module.exports = {
   extends: 'airbnb',
+  plugins: ['jest'],
+  env: {
+    'jest/globals': true,
+  },
+  transform: {
+    '\\.[jt]sx?$': 'babel-jest',
+  },
 };
