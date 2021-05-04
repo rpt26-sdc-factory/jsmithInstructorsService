@@ -24,9 +24,6 @@ beforeAll(async (done) => {
 });
 
 afterAll(async (done) => {
-  await InstructorsModel.remove({});
-  await OfferedBysModel.remove({});
-  await TestimonialsModel.remove({});
   await mongoose.connection.close();
   done();
 });
