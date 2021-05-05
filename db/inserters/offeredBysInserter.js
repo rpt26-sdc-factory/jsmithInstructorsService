@@ -4,7 +4,7 @@ const { OfferedBysModel } = require('../models.js');
 
 const offeredBysInsert = Promise.promisify(async (data, cb) => {
   try {
-    let maxID = await OfferedBysModel.find().select('_id').sort(-'_id').limit(1);
+    let maxID = await OfferedBysModel.find().select('_id').sort([['_id', -1]]).limit(1);
     maxID = maxID[0]?._id ? maxID[0]._id : 0;
     for (const datum of data) {
       maxID++;
