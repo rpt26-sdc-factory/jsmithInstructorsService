@@ -221,48 +221,48 @@ describe('Test CRUD requests for offeredBys', () => {
 describe('Test CRUD requests for testimonials', () => {
   test('should insert data into the testimonials database', async (done) => {
     const data = [{
-      courseNumber: 1,
+      courseNumber: 101,
       name: 'HELLO TEST',
       testimonialText: 'Eius ut aut. Accusantium atque eveniet qui consequatur velit quasi magni. Quia iusto nostrum est nam at. Quasi accusamus quasi quo quas rerum.',
     }];
 
     const response = await request.post('/api/testimonals').send(data);
     expect(response.status).toBe(200);
-    expect(response.body[0]._id).toBe(10);
+    expect(response.body[0]._id).toBe(301);
     expect(response.body[0].name).toBe('HELLO TEST');
     done();
   });
 
   test('should create new documents in the testimonials database', async (done) => {
     const data = [{
-      courseNumber: 1,
+      courseNumber: 101,
       name: 'TEST 2',
       testimonialText: 'Quod ipsum nihil laboriosam. Illo et non. In molestias aperiam facilis. Dolores a illum illum nam iure. Eum voluptate adipisci eos impedit. Eveniet quia est dolorum.',
     },
     {
-      courseNumber: 1,
+      courseNumber: 101,
       name: 'TEST 3',
       testimonialText: 'Quia quo quas fugit nobis incidunt ipsa. Consequatur et error excepturi sunt impedit. Ipsum fuga vel numquam occaecati necessitatibus sed cum.',
     }];
 
     const response = await request.post('/api/testimonals').send(data);
     expect(response.status).toBe(200);
-    expect(response.body[0]._id).toBe(11);
-    expect(response.body[1]._id).toBe(12);
+    expect(response.body[0]._id).toBe(302);
+    expect(response.body[1]._id).toBe(303);
     expect(response.body[0].name).toBe('TEST 2');
     expect(response.body[1].name).toBe('TEST 3');
     done();
   });
 
   test('should be able to read 1 document from testimonials', async (done) => {
-    const response = await request.get('/api/testimonials/10').send();
+    const response = await request.get('/api/testimonials/301').send();
     expect(response.status).toBe(200);
     expect(response.body[0].name).toBe('HELLO TEST');
     done();
   });
 
   test('should be able read multiple documents from testimonials', async (done) => {
-    const response = await request.get('/api/testimonials/10,11,12').send();
+    const response = await request.get('/api/testimonials/301,302,303').send();
     expect(response.status).toBe(200);
     expect(response.body[0].name).toBe('HELLO TEST');
     expect(response.body[1].name).toBe('TEST 2');
@@ -273,19 +273,19 @@ describe('Test CRUD requests for testimonials', () => {
   test('should be able to update a document from testimonials', async (done) => {
     const data = { name: 'TEST ZERO' };
 
-    const response = await request.put('/api/testimonials/10').send(data);
+    const response = await request.put('/api/testimonials/301').send(data);
     expect(response.status).toBe(200);
     expect(response.body.name).toBe('TEST ZERO');
-    const check = await request.get('/api/testimonials/10').send();
+    const check = await request.get('/api/testimonials/301').send();
     expect(check.body[0].name).toBe('TEST ZERO');
     done();
   });
 
   test('should be able to delete a document from testimonials', async (done) => {
-    const response = await request.del('/api/testimonals/12').send();
+    const response = await request.del('/api/testimonals/303').send();
     expect(response.status).toBe(200);
     const check = await TestimonialsModel.countDocuments({});
-    expect(check).toBe(11);
+    expect(check).toBe(302);
     done();
   });
 });
