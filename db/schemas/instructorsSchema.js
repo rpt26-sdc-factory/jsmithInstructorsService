@@ -9,9 +9,9 @@ const courses = new Schema({
 
 const instructorsSchema = new Schema({
   _id: Number,
-  firstName: String,
+  firstName: { type: String, required: true} ,
   middleInitial: String,
-  lastName: String,
+  lastName: { type: String, required: true},
   academicTitle: String,
   title: String,
   organization: String,
