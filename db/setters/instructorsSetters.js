@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const { InstructorsModel } = require('../models.js');
 
 const setInstructor = Promise.promisify((id, update, cb) => {
-  InstructorsModel.findByIdAndUpdate(id, update, { new: true })
+  InstructorsModel.findOneAndUpdate({ _id: id }, update, { new: true })
     .then((results) => {
       cb(null, results);
     })
