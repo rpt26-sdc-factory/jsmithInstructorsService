@@ -11,3 +11,9 @@ const testimonials = generateTestimonials(totalRecords);
 fs.writeFileSync('./db/data/instructors.json', JSON.stringify(instructors, null, '\t'));
 fs.writeFileSync('./db/data/offeredBys.json', JSON.stringify(offeredBys, null, '\t'));
 fs.writeFileSync('./db/data/testimonials.json', JSON.stringify(testimonials, null, '\t'));
+
+module.exports = {
+  instructors,
+  offeredBys,
+  testimonials,
+};
