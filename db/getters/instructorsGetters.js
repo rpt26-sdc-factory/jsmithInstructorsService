@@ -18,7 +18,7 @@ const getInstructors = Promise.promisify((courseIds, cb) => {
 });
 
 const getPrimaryInstructor = Promise.promisify((courseId, cb) => {
-  const options = { courses: { $elemMatch: { courseId, isPrimaryInstructor: true } } };
+  const options = { courses: { $elemMatch: { courseNumber: courseId, isPrimaryInstructor: true } } };
   InstructorsModel.findOne(options)
     .then((dbResponse) => cb(null, dbResponse))
     .catch((err) => cb(err));
