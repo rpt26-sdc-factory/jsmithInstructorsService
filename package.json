@@ -8,15 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "generateInstructors": "node ./db/generators/instructorsGenerator.js",
-    "generateOfferedBys": "node ./db/generators/offeredBysGenerator.js",
-    "generateTestimonials": "node ./db/generators/testimonialsGenerator.js",
-    "insertInstructors": "node ./db/inserters/instructorsInserter.js",
-    "insertOfferedBys": "node ./db/inserters/offeredBysInserter.js",
-    "insertTestimonials": "node ./db/inserters/testimonialsInserter.js",
-    "generate": "npm run generateInstructors && npm run generateOfferedBys && npm run generateTestimonials",
-    "insert": "npm run insertInstructors && npm run insertOfferedBys && npm run insertTestimonials",
-    "seed": "npm run generate && npm run insert",
+    "seed": "node db/seed.js",
     "test": "jest --detectOpenHandles --coverage",
     "start": "node server/index.js",
     "react-dev": "webpack --watch",
