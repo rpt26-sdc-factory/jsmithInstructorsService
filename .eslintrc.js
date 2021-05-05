@@ -11,5 +11,5 @@ module.exports = {
   env: {
     'jest/globals': true,
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
 };
