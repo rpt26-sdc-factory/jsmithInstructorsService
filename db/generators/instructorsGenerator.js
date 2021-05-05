@@ -2,9 +2,9 @@
 /* eslint-disable no-nested-ternary */
 // eslint-disable-next-line import/no-extraneous-dependencies
 const faker = require('faker');
-const fs = require('fs');
+// const fs = require('fs');
 
-const generateInstructors = () => {
+const generateInstructors = (entries) => {
   const instructors = [];
 
   const schools = [
@@ -36,9 +36,9 @@ const generateInstructors = () => {
     'Zaytuna College',
   ]; // Pulled manually from https://nces.ed.gov/collegenavigator
 
-  // creates 100 instructors
-  const createInstructors = () => {
-    for (let id = 1; id <= 100; id++) {
+  // creates n instructors
+  const createInstructors = (numInstructors) => {
+    for (let id = 1; id <= numInstructors; id++) {
       // console.log('Instructors generating data for course ', id);
       let bool;
       const random = Math.random();
@@ -52,7 +52,6 @@ const generateInstructors = () => {
       }
 
       const instructor = {
-        id,
         firstName: faker.name.firstName(),
         middleInitial: faker.name.middleName().slice(0, 1).toUpperCase(),
         lastName: faker.name.lastName(),
@@ -72,28 +71,25 @@ const generateInstructors = () => {
   };
 
   // adds one primary instructor per course
-  const addPrimaryInstructors = () => {
-    for (let i = 1; i <= 100; i++) {
-      const index = Math.floor(Math.random() * 40) + 1; // only first 40 as primaryInstructor
+  const addPrimaryInstructors = (numCourses) => {
+    const courseInstructors = [];
+    for (let i = 1; i <= numCourses; i++) {
+      courseInstructors.push(Math.floor(Math.random() * 40) + 1);
+    }
+
+    for (let i = 1; i <= courseInstructors; i++) {
       const courseObj = {
         courseNumber: i,
         isPrimaryInstructor: true,
       };
-      const filtered = instructors.filter((instructor) => instructor.id === index);
-      const { id } = filtered[0];
 
-      // assigns from 0 to 4 courses per instructor
-      if (instructors[id + 1].courses.length < 4) {
-        instructors[id + 1].courses.push(courseObj);
-      } else {
-        i--;
-      }
+      instructors[courseInstructors[i]].courses.push(courseObj);
     }
   };
 
   // assigns 0 to 3 assistant instructors per course, no min or max courses per assistant
-  const addAssistantInstructors = () => {
-    for (let courseNumber = 1; courseNumber <= 100; courseNumber++) {
+  const addAssistantInstructors = (numCourses) => {
+    for (let courseNumber = 1; courseNumber <= numCourses; courseNumber++) {
       const numberOfAssistants = Math.floor(Math.random() * 4);
       const assistants = [];
 
@@ -115,11 +111,11 @@ const generateInstructors = () => {
     }
   };
 
-  createInstructors();
-  addPrimaryInstructors();
-  addAssistantInstructors();
-  fs.writeFileSync('./db/data/instructors.json', JSON.stringify(instructors, null, '\t'));
+  createInstructors(entries);
+  addPrimaryInstructors(entries);
+  addAssistantInstructors(entries);
+  // fs.writeFileSync('./db/data/instructors.json', JSON.stringify(instructors, null, '\t'));
+  return instructors;
 };
 
 module.exports = generateInstructors;
-generateInstructors();
