@@ -17,7 +17,7 @@
     "generate": "npm run generateInstructors && npm run generateOfferedBys && npm run generateTestimonials",
     "insert": "npm run insertInstructors && npm run insertOfferedBys && npm run insertTestimonials",
     "seed": "npm run generate && npm run insert",
-    "test": "jest --detectOpenHandles",
+    "test": "jest --detectOpenHandles --coverage",
     "start": "node server/index.js",
     "react-dev": "webpack --watch",
     "build": "webpack",
