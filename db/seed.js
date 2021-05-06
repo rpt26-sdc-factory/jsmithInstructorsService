@@ -2,7 +2,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const { instructorsInsert, offeredBysInsert, testimonialsInsert } = require('./methods.js');
-const { generateInstructors, generateOfferedBys, generateTestimonials } = require('../db/generators/generateData.js');
+const { generateInstructors, generateOfferedBys, generateTestimonials } = require('./generators/generateData.js');
 
 const seed = async () => {
   mongoose.connect(`mongodb://${process.env.DB_HOSTNAME}:${process.env.DB_PORT}/coursera`, { useNewUrlParser: true, useUnifiedTopology: true });
