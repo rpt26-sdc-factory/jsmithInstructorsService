@@ -8,7 +8,9 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "generate": "node db/generators/generateData.js",
+    "generate:instructors": "node db/generators/instructorsGenerator.js",
+    "generate:offeredbys": "node db/generators/offeredBysGenerator.js",
+    "generate:testimonials": "node db/generators/testimonialsGenerator.js",
     "seed": "node db/seed.js",
     "test": "jest --detectOpenHandles --coverage",
     "start": "node server/index.js",
