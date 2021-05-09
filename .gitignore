@@ -30,3 +30,4 @@ dist/
 *.cer
 *.pem
 bundle.js
+db/seeders/*.json
