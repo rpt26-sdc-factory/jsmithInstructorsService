@@ -1,10 +1,12 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-console */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-nested-ternary */
-// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config();
 const faker = require('faker');
-// const fs = require('fs');
+const fs = require('fs');
 
-const generateInstructors = (entries) => {
+const generateInstructors = (entries, filenum) => {
   const instructors = [];
 
   const schools = [
@@ -114,8 +116,17 @@ const generateInstructors = (entries) => {
   createInstructors(entries);
   addPrimaryInstructors(entries);
   addAssistantInstructors(entries);
-  // fs.writeFileSync('./db/data/instructors.json', JSON.stringify(instructors, null, '\t'));
+  fs.writeFileSync(`./db/seeders/instructors_${filenum}.json`, JSON.stringify(instructors, null, '\t'));
   return instructors;
 };
+
+let count = 10;
+const start = new Date();
+while (count > 0) {
+  generateInstructors(process.env.PRIMARY_RECORD_BATCH_SIZE, count);
+  count--;
+}
+const end = new Date();
+console.log('Time to complete: ', end - start, 'ms');
 
 module.exports = generateInstructors;
