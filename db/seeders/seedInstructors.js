@@ -1,9 +1,12 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 require('dotenv').config();
+const fs = require('fs');
 const mongoose = require('mongoose');
-const { instructorsInsert } = require('../methods.js');
+const { InstructorsModel } = require('../models.js');
 
 // const batch = async (batchSize, numBatches, timeElapsed) => {
 //   const startTimer = new Date();
@@ -26,25 +29,25 @@ const { instructorsInsert } = require('../methods.js');
 //     .catch((err) => console.error(err));
 // };
 
-const batch = async (batchSize) => {
-  const startTimer = new Date();
-  // const instructors = generateInstructors(batchSize);
-  // const offeredbys = generateOfferedBys(batchSize);
-  // const testimonials = generateTestimonials(batchSize);
+// const batch = async (batchSize) => {
+//   const startTimer = new Date();
+//   // const instructors = generateInstructors(batchSize);
+//   // const offeredbys = generateOfferedBys(batchSize);
+//   // const testimonials = generateTestimonials(batchSize);
 
-  await instructorsInsert(instructors)
-    // .then(() => offeredBysInsert(offeredbys))
-    // .then(() => testimonialsInsert(testimonials))
-    .then(() => {
-      const endTimer = new Date();
-      console.log(endTimer - startTimer);
-      return endTimer - startTimer;
-    })
-    .catch((err) => console.error(err.message));
-};
+//   await instructorsInsert(instructors)
+//     // .then(() => offeredBysInsert(offeredbys))
+//     // .then(() => testimonialsInsert(testimonials))
+//     .then(() => {
+//       const endTimer = new Date();
+//       console.log(endTimer - startTimer);
+//       return endTimer - startTimer;
+//     })
+//     .catch((err) => console.error(err.message));
+// };
 
-const seed = async (batchSize, numBatches) => {
-  await mongoose.connect(`mongodb://${process.env.DB_HOSTNAME}:${process.env.DB_PORT}/coursera`, { useNewUrlParser: true, useUnifiedTopology: true });
+const seed = async (numfiles) => {
+  mongoose.connect(`mongodb://${process.env.DB_HOSTNAME}:${process.env.DB_PORT}/coursera`, { useNewUrlParser: true, useUnifiedTopology: true });
 
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
@@ -52,15 +55,42 @@ const seed = async (batchSize, numBatches) => {
     console.log(`The database has connected on mongodb://${process.env.DB_HOSTNAME}:${process.env.DB_PORT}/coursera`);
   });
 
-  let count = numBatches;
-  const store = [];
-  while (count > 0) {
-    store.push(batch(batchSize));
-    count--;
+  const files = [];
+  for (let i = 1; i <= numfiles; i++) {
+    files.push(`${__dirname}/instructors_${i}.json`);
   }
 
-  return Promise.all(store);
-  // db.close();
+  files.forEach((file, index) => {
+    const startTimer = new Date();
+    const toInsert = require(file);
+    let endTimer = new Date();
+    console.log(`Parsed data: ${endTimer - startTimer}ms.`);
+    InstructorsModel.insertMany(toInsert.slice(0, 100000), () => {
+      endTimer = new Date();
+      console.log(`Processed ${index + 1} file: ${endTimer - startTimer}ms.`);
+    });
+  });
+
+  // files.forEach((file, index) => {
+  //   const startTimer = new Date();
+  //   fs.readFile(file, 'utf8', (readErr, data) => {
+  //     if (readErr) return console.error(readErr.message);
+  //     const toInsert = JSON.parse(data);
+  //     let endTimer = new Date();
+  //     console.log(`Parsed data: ${endTimer - startTimer}ms.`);
+  //     InstructorsModel.insertMany(toInsert.slice(0, 100000), () => {
+  //       endTimer = new Date();
+  //       console.log(`Processed ${index + 1} file: ${endTimer - startTimer}ms.`);
+  //     });
+  //   });
+  // });
+
+  // Promise.all(store)
+  //   .then((results) => results)
+  //   .catch((err) => console.error(err.message))
+  //   .finally(() => {
+  //     db.close(() => console.log('Database closed.'));
+  //   });
 };
 
-seed(10000, 1000);
+seed(1);
