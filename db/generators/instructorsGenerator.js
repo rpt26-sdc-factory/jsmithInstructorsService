@@ -54,6 +54,7 @@ const generateInstructors = (entries, filenum) => {
       }
 
       const instructor = {
+        _id: (id + (filenum - 1) * entries),
         firstName: faker.name.firstName(),
         middleInitial: faker.name.middleName().slice(0, 1).toUpperCase(),
         lastName: faker.name.lastName(),
