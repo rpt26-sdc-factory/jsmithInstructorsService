@@ -4,8 +4,8 @@ const { Schema } = mongoose;
 
 const offeredBysSchema = new Schema({
   _id: Number,
-  offeredByIndex: { type: Number, required: true},
-  offeredByName: { type: String, required: true},
+  offeredByIndex: { type: Number, required: true },
+  offeredByName: { type: String, required: true },
   offeredByDescription: String,
 });
 
