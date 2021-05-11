@@ -62,9 +62,9 @@ app.get('/api/allinstructors', (req, res) => {
 });
 
 // returns an array of instructors that belong to a course
-app.get('/api/instructors/:courseNumbers', (req, res) => {
-  const courseNumbers = req.params.courseNumbers.split(',').map((id) => parseInt(id, 10));
-  getInstructors(courseNumbers)
+app.get('/api/instructors/:instructorId', (req, res) => {
+  const instructors = req.params.instructorId.split(',').map((id) => parseInt(id, 10));
+  getInstructors(instructors)
     .then((dbResponse) => res.send(dbResponse))
     .catch((err) => res.send(err).status(400));
 });
