@@ -12,14 +12,14 @@ const offeredBysInsert = async (req, res) => {
   });
 
   OfferedBysModel.insertMany(data, (err, docs) => {
-    if (err) return res.send(err.message).status(400);
+    if (err) return res.status(400).send(err.message);
     return res.send(docs);
   });
 };
 
 const getAllOfferedBys = (req, res) => {
   OfferedBysModel.find({}, (err, docs) => {
-    if (err || docs.length === 0) return res.send(err.message).status(400);
+    if (err || docs.length === 0) return res.status(400).send(err?.message || 'No records found.');
     return res.send(docs);
   });
 };
@@ -27,7 +27,7 @@ const getAllOfferedBys = (req, res) => {
 const getOfferedBys = (req, res) => {
   const courseNumbers = req.params.courseNumbers.split(',').map((id) => parseInt(id, 10));
   OfferedBysModel.find({ _id: { $in: courseNumbers } }, (err, docs) => {
-    if (err || docs.length === 0) return res.send(err.message).status(400);
+    if (err || docs.length === 0) return res.status(400).send(err?.message || 'No records found.');
     return res.send(docs);
   });
 };
@@ -41,7 +41,7 @@ const setOfferedBy = (req, res) => {
     update,
     { new: true, useFindAndModify: false },
     (err, docs) => {
-      if (err || docs.length === 0) return res.send(err.message).status(400);
+      if (err || !docs) return res.status(400).send(err?.message || 'No records found.');
       return res.send(docs);
     },
   );
@@ -50,7 +50,7 @@ const setOfferedBy = (req, res) => {
 const deleteOfferedBy = (req, res) => {
   const courseId = parseInt(req.params.courseNumber, 10);
   OfferedBysModel.findByIdAndRemove(courseId, (err, docs) => {
-    if (err || docs.length === 0) return res.send(err.message).status(400);
+    if (err) return res.status(400).send(err.message);
     return res.send(docs);
   });
 };

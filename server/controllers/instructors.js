@@ -12,14 +12,14 @@ const createInstructors = async (req, res) => {
   });
 
   InstructorsModel.insertMany(data, (err, docs) => {
-    if (err) return res.send(err.message).status(400);
+    if (err) return res.status(400).send(err.message);
     return res.send(docs);
   });
 };
 
 const getAllInstructors = (req, res) => {
   InstructorsModel.find({}, (err, docs) => {
-    if (err || docs.length === 0) return res.send(err.message).status(400);
+    if (err || docs.length === 0) return res.status(400).send(err?.message || 'No records found.');
     return res.send(docs);
   });
 };
@@ -27,7 +27,7 @@ const getAllInstructors = (req, res) => {
 const getInstructors = (req, res) => {
   const instructors = req.params.instructorId.split(',').map((id) => parseInt(id, 10));
   InstructorsModel.find({ _id: { $in: instructors } }, (err, docs) => {
-    if (err || docs.length === 0) return res.send(err.message).status(400);
+    if (err || docs.length === 0) return res.status(400).send(err?.message || 'No records found.');
     return res.send(docs);
   });
 };
@@ -41,7 +41,7 @@ const getPrimaryInstructor = (req, res) => {
   };
 
   InstructorsModel.findOne(options, (err, docs) => {
-    if (err || docs.length === 0) return res.send(err.message).status(400);
+    if (err || docs.length === 0) return res.status(400).send(err?.message || 'No records found.');
     return res.send(docs);
   });
 };
@@ -54,7 +54,7 @@ const setInstructor = (req, res) => {
     update,
     { new: true, useFindAndModify: false },
     (err, docs) => {
-      if (err || docs.length === 0) return res.send(err.message).status(400);
+      if (err || !docs) return res.status(400).send(err?.message || 'No records found.');
       return res.send(docs);
     },
   );
@@ -63,7 +63,7 @@ const setInstructor = (req, res) => {
 const deleteInstructor = (req, res) => {
   const id = parseInt(req.params.instructorid, 10);
   InstructorsModel.findByIdAndRemove(id, (err, docs) => {
-    if (err || docs.length === 0) return res.send(err.message).status(400);
+    if (err) return res.status(400).send(err.message);
     return res.send(docs);
   });
 };

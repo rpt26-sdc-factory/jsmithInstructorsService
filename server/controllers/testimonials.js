@@ -12,7 +12,7 @@ const testimonialsInsert = async (req, res) => {
   });
 
   TestimonialsModel.insertMany(data, (err, docs) => {
-    if (err) return res.send(err.message).status(400);
+    if (err) return res.status(400).send(err.message);
     return res.send(docs);
   });
 };
@@ -20,7 +20,7 @@ const testimonialsInsert = async (req, res) => {
 const getTestimonials = (req, res) => {
   const courseNumbers = req.params.courseNumbers.split(',').map((id) => parseInt(id, 10));
   TestimonialsModel.find({ _id: { $in: courseNumbers } }, (err, docs) => {
-    if (err || docs.length === 0) return res.send(err.message).status(400);
+    if (err || docs.length === 0) return res.status(400).send(err?.message || 'No records found.');
     return res.send(docs);
   });
 };
@@ -34,7 +34,7 @@ const setTestimonial = (req, res) => {
     update,
     { new: true, useFindAndModify: false },
     (err, docs) => {
-      if (err || docs.length === 0) return res.send(err.message).status(400);
+      if (err || !docs) return res.status(400).send(err?.message || 'No records found.');
       return res.send(docs);
     },
   );
@@ -43,7 +43,7 @@ const setTestimonial = (req, res) => {
 const deleteTestimonial = (req, res) => {
   const testimonial = parseInt(req.params.testimonialid, 10);
   TestimonialsModel.findByIdAndRemove(testimonial, (err, docs) => {
-    if (err || docs.length === 0) return res.send(err.message).status(400);
+    if (err) return res.status(400).send(err.message);
     return res.send(docs);
   });
 };
