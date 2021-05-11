@@ -3,6 +3,9 @@
 require('dotenv').config();
 const fs = require('fs');
 
+const batchSize = process.env.NODE_ENV === 'test' ? 100 : process.env.PRIMARY_RECORD_BATCH_SIZE;
+const numBatches = process.env.NODE_ENV === 'test' ? 1 : process.env.PRIMARY_RECORD_BATCH__NUM;
+
 // assigns one of six sponsors to each course
 const generateOfferedBys = (entries, filenum) => {
   const offeredBys = [];
@@ -28,8 +31,8 @@ const generateOfferedBys = (entries, filenum) => {
 
 let count = 1;
 const start = new Date();
-while (count <= 10) {
-  generateOfferedBys(process.env.PRIMARY_RECORD_BATCH_SIZE, count);
+while (count <= numBatches) {
+  generateOfferedBys(batchSize, count);
   count++;
 }
 const end = new Date();

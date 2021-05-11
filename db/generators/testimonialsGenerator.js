@@ -5,6 +5,9 @@ require('dotenv').config();
 const faker = require('faker');
 const fs = require('fs');
 
+const batchSize = process.env.NODE_ENV === 'test' ? 100 : process.env.PRIMARY_RECORD_BATCH_SIZE / 2;
+const numBatches = process.env.NODE_ENV === 'test' ? 1 : process.env.PRIMARY_RECORD_BATCH__NUM;
+
 const generateTestimonials = (courses, filenum, id) => {
   const testimonials = [];
   let reviewId = id;
@@ -30,8 +33,8 @@ const generateTestimonials = (courses, filenum, id) => {
 let count = 1;
 let startId = 1;
 const start = new Date();
-while (count <= 20) {
-  startId = generateTestimonials(process.env.PRIMARY_RECORD_BATCH_SIZE / 2, count, startId) + 1;
+while (count <= numBatches) {
+  startId = generateTestimonials(batchSize, count, startId) + 1;
   count++;
 }
 const end = new Date();

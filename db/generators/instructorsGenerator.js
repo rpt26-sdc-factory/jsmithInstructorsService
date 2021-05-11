@@ -6,6 +6,8 @@ require('dotenv').config();
 const faker = require('faker');
 const fs = require('fs');
 
+const batchSize = process.env.NODE_ENV === 'test' ? 100 : process.env.PRIMARY_RECORD_BATCH_SIZE;
+const numBatches = process.env.NODE_ENV === 'test' ? 1 : process.env.PRIMARY_RECORD_BATCH__NUM;
 const generateInstructors = (entries, filenum) => {
   const instructors = [];
 
@@ -123,8 +125,8 @@ const generateInstructors = (entries, filenum) => {
 
 let count = 1;
 const start = new Date();
-while (count <= 10) {
-  generateInstructors(process.env.PRIMARY_RECORD_BATCH_SIZE, count);
+while (count <= numBatches) {
+  generateInstructors(batchSize, count);
   count++;
 }
 const end = new Date();
