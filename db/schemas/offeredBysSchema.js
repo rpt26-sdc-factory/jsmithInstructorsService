@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const offeredBysSchema = new Schema({
-  id: Number,
-  offeredByIndex: Number,
-  offeredByName: String,
+  _id: Number,
+  offeredByIndex: { type: Number, required: true},
+  offeredByName: { type: String, required: true},
   offeredByDescription: String,
 });
 

@@ -1,602 +1,502 @@
 [
 	{
-		"id": 1,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
-	},
-	{
-		"id": 2,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 3,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 4,
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 5,
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 6,
-		"offeredByIndex": 2,
-		"offeredByName": "IBM",
-		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
-	},
-	{
-		"id": 7,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 8,
 		"offeredByIndex": 5,
 		"offeredByName": "University of Virginia",
 		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
 	},
 	{
-		"id": 9,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
-	},
-	{
-		"id": 10,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 11,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 12,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 13,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 14,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 15,
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 16,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
-	},
-	{
-		"id": 17,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 18,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 19,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 20,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 21,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 22,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 23,
 		"offeredByIndex": 2,
 		"offeredByName": "IBM",
 		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
 	},
 	{
-		"id": 24,
-		"offeredByIndex": 2,
-		"offeredByName": "IBM",
-		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
 	},
 	{
-		"id": 25,
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 26,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 27,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 28,
-		"offeredByIndex": 2,
-		"offeredByName": "IBM",
-		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
-	},
-	{
-		"id": 29,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 30,
 		"offeredByIndex": 4,
 		"offeredByName": "University of Pennsylvania",
 		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
 	},
 	{
-		"id": 31,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 32,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 33,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 34,
 		"offeredByIndex": 2,
 		"offeredByName": "IBM",
 		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
 	},
 	{
-		"id": 35,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 36,
-		"offeredByIndex": 2,
-		"offeredByName": "IBM",
-		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
-	},
-	{
-		"id": 37,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 38,
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 39,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
 	},
 	{
-		"id": 40,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
 	},
 	{
-		"id": 41,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 42,
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 43,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 44,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 45,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 46,
 		"offeredByIndex": 2,
 		"offeredByName": "IBM",
 		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
 	},
 	{
-		"id": 47,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 48,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 49,
 		"offeredByIndex": 2,
 		"offeredByName": "IBM",
 		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
 	},
 	{
-		"id": 50,
-		"offeredByIndex": 2,
-		"offeredByName": "IBM",
-		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
-	},
-	{
-		"id": 51,
 		"offeredByIndex": 1,
 		"offeredByName": "Erasmus University Rotterdam",
 		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
 	},
 	{
-		"id": 52,
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 53,
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
 		"offeredByIndex": 0,
 		"offeredByName": "DeepLearning.AI",
 		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
 	},
 	{
-		"id": 54,
 		"offeredByIndex": 1,
 		"offeredByName": "Erasmus University Rotterdam",
 		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
 	},
 	{
-		"id": 55,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
 	},
 	{
-		"id": 56,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
-	},
-	{
-		"id": 57,
-		"offeredByIndex": 2,
-		"offeredByName": "IBM",
-		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
-	},
-	{
-		"id": 58,
 		"offeredByIndex": 0,
 		"offeredByName": "DeepLearning.AI",
 		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
 	},
 	{
-		"id": 59,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 60,
-		"offeredByIndex": 2,
-		"offeredByName": "IBM",
-		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
-	},
-	{
-		"id": 61,
 		"offeredByIndex": 5,
 		"offeredByName": "University of Virginia",
 		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
 	},
 	{
-		"id": 62,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 63,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 64,
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 65,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
 	},
 	{
-		"id": 66,
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
 		"offeredByIndex": 2,
 		"offeredByName": "IBM",
 		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
 	},
 	{
-		"id": 67,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
-	},
-	{
-		"id": 68,
 		"offeredByIndex": 1,
 		"offeredByName": "Erasmus University Rotterdam",
 		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
 	},
 	{
-		"id": 69,
 		"offeredByIndex": 5,
 		"offeredByName": "University of Virginia",
 		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
 	},
 	{
-		"id": 70,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
 	},
 	{
-		"id": 71,
-		"offeredByIndex": 5,
-		"offeredByName": "University of Virginia",
-		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
 	},
 	{
-		"id": 72,
 		"offeredByIndex": 2,
 		"offeredByName": "IBM",
 		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
 	},
 	{
-		"id": 73,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
 	},
 	{
-		"id": 74,
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 75,
 		"offeredByIndex": 2,
 		"offeredByName": "IBM",
 		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
 	},
 	{
-		"id": 76,
+		"offeredByIndex": 3,
+		"offeredByName": "University of Illinois at Urbana-Champaign",
+		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
 		"offeredByIndex": 4,
 		"offeredByName": "University of Pennsylvania",
 		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
 	},
 	{
-		"id": 77,
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+	},
+	{
+		"offeredByIndex": 3,
+		"offeredByName": "University of Illinois at Urbana-Champaign",
+		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
+	},
+	{
 		"offeredByIndex": 0,
 		"offeredByName": "DeepLearning.AI",
 		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
 	},
 	{
-		"id": 78,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
-	},
-	{
-		"id": 79,
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 80,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
-	},
-	{
-		"id": 81,
-		"offeredByIndex": 3,
-		"offeredByName": "University of Illinois at Urbana-Champaign",
-		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
-	},
-	{
-		"id": 82,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 83,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
-	},
-	{
-		"id": 84,
-		"offeredByIndex": 0,
-		"offeredByName": "DeepLearning.AI",
-		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
-	},
-	{
-		"id": 85,
 		"offeredByIndex": 5,
 		"offeredByName": "University of Virginia",
 		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
 	},
 	{
-		"id": 86,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
 	},
 	{
-		"id": 87,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
-	},
-	{
-		"id": 88,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
-	},
-	{
-		"id": 89,
 		"offeredByIndex": 2,
 		"offeredByName": "IBM",
 		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
 	},
 	{
-		"id": 90,
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+	},
+	{
 		"offeredByIndex": 0,
 		"offeredByName": "DeepLearning.AI",
 		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
 	},
 	{
-		"id": 91,
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
 		"offeredByIndex": 5,
 		"offeredByName": "University of Virginia",
 		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
 	},
 	{
-		"id": 92,
-		"offeredByIndex": 1,
-		"offeredByName": "Erasmus University Rotterdam",
-		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+		"offeredByIndex": 0,
+		"offeredByName": "DeepLearning.AI",
+		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
 	},
 	{
-		"id": 93,
-		"offeredByIndex": 3,
-		"offeredByName": "University of Illinois at Urbana-Champaign",
-		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
+		"offeredByIndex": 0,
+		"offeredByName": "DeepLearning.AI",
+		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
 	},
 	{
-		"id": 94,
-		"offeredByIndex": 2,
-		"offeredByName": "IBM",
-		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
-	},
-	{
-		"id": 95,
-		"offeredByIndex": 2,
-		"offeredByName": "IBM",
-		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
-	},
-	{
-		"id": 96,
 		"offeredByIndex": 4,
 		"offeredByName": "University of Pennsylvania",
 		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
 	},
 	{
-		"id": 97,
-		"offeredByIndex": 4,
-		"offeredByName": "University of Pennsylvania",
-		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
-	},
-	{
-		"id": 98,
 		"offeredByIndex": 3,
 		"offeredByName": "University of Illinois at Urbana-Champaign",
 		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
 	},
 	{
-		"id": 99,
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+	},
+	{
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 3,
+		"offeredByName": "University of Illinois at Urbana-Champaign",
+		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
+	},
+	{
+		"offeredByIndex": 3,
+		"offeredByName": "University of Illinois at Urbana-Champaign",
+		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
 		"offeredByIndex": 1,
 		"offeredByName": "Erasmus University Rotterdam",
 		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
 	},
 	{
-		"id": 100,
+		"offeredByIndex": 0,
+		"offeredByName": "DeepLearning.AI",
+		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
+	},
+	{
 		"offeredByIndex": 1,
 		"offeredByName": "Erasmus University Rotterdam",
 		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+	},
+	{
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+	},
+	{
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+	},
+	{
+		"offeredByIndex": 0,
+		"offeredByName": "DeepLearning.AI",
+		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 0,
+		"offeredByName": "DeepLearning.AI",
+		"offeredByDescription": "DeepLearning.AI is an education technology company that develops a global community of AI talent."
+	},
+	{
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+	},
+	{
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 3,
+		"offeredByName": "University of Illinois at Urbana-Champaign",
+		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+	},
+	{
+		"offeredByIndex": 3,
+		"offeredByName": "University of Illinois at Urbana-Champaign",
+		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
+	},
+	{
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
+		"offeredByIndex": 3,
+		"offeredByName": "University of Illinois at Urbana-Champaign",
+		"offeredByDescription": "The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois serves the world by creating knowledge, preparing students for lives of impact, and finding solutions to critical societal needs."
+	},
+	{
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
+		"offeredByIndex": 5,
+		"offeredByName": "University of Virginia",
+		"offeredByDescription": "A premier institution of higher education, The University of Virginia offers outstanding academics, world-class faculty, and an inspiring, supportive environment. Founded by Thomas Jefferson in 1819, the University is guided by his vision of discovery, innovation, and development of the full potential of students from all walks of life. Through these courses, global learners have an opportunity to study with renowned scholars and thought leaders."
+	},
+	{
+		"offeredByIndex": 1,
+		"offeredByName": "Erasmus University Rotterdam",
+		"offeredByDescription": "Erasmus University: a top-100 ranked international research university based in Rotterdam, the Netherlands. Our academic teaching and research focuses on four areas: health, wealth, culture and governance. Erasmus University Rotterdam: make it happen. "
+	},
+	{
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+	},
+	{
+		"offeredByIndex": 4,
+		"offeredByName": "University of Pennsylvania",
+		"offeredByDescription": "The University of Pennsylvania (commonly referred to as Penn) is a private university, located in Philadelphia, Pennsylvania, United States. A member of the Ivy League, Penn is the fourth-oldest institution of higher education in the United States, and considers itself to be the first university in the United States with both undergraduate and graduate studies."
+	},
+	{
+		"offeredByIndex": 2,
+		"offeredByName": "IBM",
+		"offeredByDescription": "IBM is the global leader in business transformation through an open hybrid cloud platform and AI, serving clients in more than 170 countries around the world. Today 47 of the Fortune 50 Companies rely on the IBM Cloud to run their business, and IBM Watson enterprise AI is hard at work in more than 30,000 engagements. IBM is also one of the world’s most vital corporate research organizations, with 28 consecutive years of patent leadership. Above all, guided by principles for trust and transparency and support for a more inclusive society, IBM is committed to being a responsible technology innovator and a force for good in the world. For more information about IBM visit: www.ibm.com"
 	}
 ]

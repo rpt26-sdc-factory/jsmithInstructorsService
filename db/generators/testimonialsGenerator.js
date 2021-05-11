@@ -2,24 +2,35 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 const faker = require('faker');
-const fs = require('fs');
+// const fs = require('fs');
 
 // creates 9 testimonials
-const generateTestimonials = () => {
+const generateTestimonials = (courses) => {
   const testimonials = [];
 
-  for (let id = 1; id <= 9; id++) {
-    console.log('Testimonials generating data ', id, ' of 9');
-    const testimonial = {
-      id,
-      name: faker.name.firstName().concat(' ', faker.name.lastName().slice(0, 1), '.'),
-      testimonialText: faker.lorem.paragraph(),
-    };
-    testimonials.push(testimonial);
+  for (let id = 1; id <= courses; id++) {
+    const testimonial = [
+      {
+        courseNumber: id,
+        name: faker.name.firstName().concat(' ', faker.name.lastName().slice(0, 1), '.'),
+        testimonialText: faker.lorem.paragraph(),
+      },
+      {
+        courseNumber: id,
+        name: faker.name.firstName().concat(' ', faker.name.lastName().slice(0, 1), '.'),
+        testimonialText: faker.lorem.paragraph(),
+      },
+      {
+        courseNumber: id,
+        name: faker.name.firstName().concat(' ', faker.name.lastName().slice(0, 1), '.'),
+        testimonialText: faker.lorem.paragraph(),
+      },
+    ];
+    testimonials.push(...testimonial);
   }
 
-  fs.writeFileSync('./db/data/testimonials.json', JSON.stringify(testimonials, null, '\t'));
+  // fs.writeFileSync('./db/data/testimonials.json', JSON.stringify(testimonials, null, '\t'));
+  return testimonials;
 };
 
 module.exports = generateTestimonials;
-generateTestimonials();

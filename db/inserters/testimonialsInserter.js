@@ -1,17 +1,23 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
-const mongoose = require('mongoose');
-const testimonialsData = require('../data/testimonials.json');
-const db = require('../models.js');
+const Promise = require('bluebird');
+const { TestimonialsModel } = require('../models.js');
 
-const testimonialsInsert = () => {
-  db.TestimonialsModel.insertMany(testimonialsData, (err) => {
-    if (err) {
-      console.error(err);
-    }
-    console.log('testimonialsInsert success');
-    mongoose.connection.close();
-  });
-};
+const testimonialsInsert = Promise.promisify(async (data, cb) => {
+  try {
+    let maxID = await TestimonialsModel.find().select('_id').sort([['_id', -1]]).limit(1);
+    maxID = maxID[0]?._id ? maxID[0]._id : 0;
+    Object.keys(data).forEach((key) => {
+      maxID++;
+      data[key]._id = maxID;
+    });
+    const results = await TestimonialsModel.insertMany(data);
+    return cb(null, results);
+  } catch (err) {
+    return cb(err);
+  }
+});
 
-testimonialsInsert();
-module.exports.testimonialsInsert = testimonialsInsert;
+module.exports = testimonialsInsert;

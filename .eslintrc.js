@@ -7,4 +7,9 @@
 
 module.exports = {
   extends: 'airbnb',
+  plugins: ['jest'],
+  env: {
+    'jest/globals': true,
+  },
+  parser: '@babel/eslint-parser',
 };
