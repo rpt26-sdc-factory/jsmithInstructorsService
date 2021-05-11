@@ -14,6 +14,7 @@ const generateOfferedBys = (entries, filenum) => {
 
     const index = Math.floor(Math.random() * offeredByNames.length);
     const offeredBy = {
+      _id: (id + (filenum - 1) * entries),
       offeredByIndex: index,
       offeredByName: offeredByNames[index],
       offeredByDescription: offeredBysDescription[index],
@@ -25,11 +26,11 @@ const generateOfferedBys = (entries, filenum) => {
   return offeredBys;
 };
 
-let count = 10;
+let count = 1;
 const start = new Date();
-while (count > 0) {
+while (count <= 10) {
   generateOfferedBys(process.env.PRIMARY_RECORD_BATCH_SIZE, count);
-  count--;
+  count++;
 }
 const end = new Date();
 console.log('Time to complete: ', end - start, 'ms');

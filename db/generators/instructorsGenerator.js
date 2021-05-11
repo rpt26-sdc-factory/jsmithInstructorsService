@@ -77,10 +77,10 @@ const generateInstructors = (entries, filenum) => {
   const addPrimaryInstructors = (numCourses) => {
     const courseInstructors = [];
     for (let i = 1; i <= numCourses; i++) {
-      courseInstructors.push(Math.floor(Math.random() * 40) + 1);
+      courseInstructors.push(Math.floor(Math.random() * numCourses * 0.4) + 1);
     }
 
-    for (let i = 1; i <= courseInstructors; i++) {
+    for (let i = 1; i < courseInstructors.length; i++) {
       const courseObj = {
         courseNumber: i,
         isPrimaryInstructor: true,
@@ -97,7 +97,7 @@ const generateInstructors = (entries, filenum) => {
       const assistants = [];
 
       while (assistants.length < numberOfAssistants) {
-        const assistantIndex = Math.floor(Math.random() * 61) + 39;
+        const assistantIndex = Math.floor(Math.random() * numCourses * 0.6) + numCourses * 0.4;
 
         // prevents the same instructor from being added twice to the same course
         if (!assistants.includes(assistantIndex)) {
@@ -121,11 +121,11 @@ const generateInstructors = (entries, filenum) => {
   return instructors;
 };
 
-let count = 10;
+let count = 1;
 const start = new Date();
-while (count > 0) {
+while (count <= 10) {
   generateInstructors(process.env.PRIMARY_RECORD_BATCH_SIZE, count);
-  count--;
+  count++;
 }
 const end = new Date();
 console.log('Time to complete: ', end - start, 'ms');
