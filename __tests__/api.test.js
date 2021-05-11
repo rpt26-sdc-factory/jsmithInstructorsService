@@ -1,20 +1,21 @@
 /* eslint-disable no-underscore-dangle */
 require('dotenv').config();
+require('../db/generators/instructorsGenerator.js');
+require('../db/generators/offeredBysGenerator.js');
+require('../db/generators/testimonialsGenerator.js');
 const supertest = require('supertest');
 const mongoose = require('mongoose');
 const app = require('../server/api.js');
 const { InstructorsModel, OfferedBysModel, TestimonialsModel } = require('../db/models.js');
 const { instructorsInsert, offeredBysInsert, testimonialsInsert } = require('../db/methods.js');
-const { generateInstructors, generateOfferedBys, generateTestimonials } = require('../db/generators/generateData.js');
+const instructorsData = require('../db/seeders/instructors_1.json');
+const offeredBysData = require('../db/seeders/offeredbys_1.json');
+const testimonialsData = require('../db/seeders/testimonials_1.json');
 
 const request = supertest(app);
 
 beforeAll(async (done) => {
   mongoose.connect(`mongodb://${process.env.DB_HOSTNAME}:${process.env.DB_PORT}/test`, { useNewUrlParser: true, useUnifiedTopology: true });
-  const initialRecords = 100;
-  const instructorsData = generateInstructors(initialRecords);
-  const offeredBysData = generateOfferedBys(initialRecords);
-  const testimonialsData = generateTestimonials(initialRecords);
 
   await InstructorsModel.deleteMany({});
   await OfferedBysModel.deleteMany({});
@@ -96,6 +97,12 @@ describe('Test CRUD requests for instructors', () => {
     const response = await request.get('/api/instructors/101').send();
     expect(response.status).toBe(200);
     expect(response.body[0].firstName).toBe('Tester');
+    done();
+  });
+
+  test('should return status code 400 if document _id does not exist', async (done) => {
+    const response = await request.get('/api/instructors/999').send();
+    expect(response.status).toBe(400);
     done();
   });
 
