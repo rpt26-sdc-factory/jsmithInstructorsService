@@ -15,8 +15,6 @@
     "seed:mongo_offeredbys": "bash db/seeders/mongodb/offeredbys.sh",
     "seed:mongo_testimonials": "bash db/seeders/mongodb/testimonials.sh",
     "seed:mongo": "bash db/seeders/mongodb/seedAll.sh",
-    "seed:offeredbys": "node db/seeders/seedOfferedBys.js",
-    "seed:testimonials": "node db/seeders/seedTestimonials.js",
     "test": "jest --detectOpenHandles --coverage",
     "start": "node server/index.js",
     "react-dev": "webpack --watch",
