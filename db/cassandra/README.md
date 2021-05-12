@@ -20,9 +20,11 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_***`
 
 Replace the stars with the OpenJDK version seen in your terminal.
 
+The service will be stopped once the terminal running `cassandra -f` is stopped via `ctrl + c`.
+
 ## Create the Database
 
-A `KEYSPACE` is equivalent to a MongoDB or MySQL database name. The below is the default creation within `cqlsh` for this repo.
+A `KEYSPACE` is equivalent to a MongoDB or MySQL database name. The below is the default creation within `cqlsh` for this
 
 ```bash
 CREATE KEYSPACE IF NOT EXISTS coursera
