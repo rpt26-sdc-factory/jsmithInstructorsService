@@ -3,7 +3,7 @@ require('dotenv').configure();
 const cass = require('cassandra-driver');
 
 const client = new cass.Client({
-  contactPoints: [`${process.env.DB_HOST}:${process.env.CASS_PORT}`],
+  contactPoints: [`${process.env.DB_HOST}:${process.env.CASSANDRA_PORT}`],
   localDataCenter: 'test',
   keyspace: 'coursera',
 });
