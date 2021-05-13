@@ -6,7 +6,7 @@ const faker = require('faker');
 const fs = require('fs');
 
 const batchSize = process.env.NODE_ENV === 'test' ? 100 : process.env.PRIMARY_RECORD_BATCH_SIZE / 2;
-const numBatches = process.env.NODE_ENV === 'test' ? 1 : process.env.PRIMARY_RECORD_BATCH__NUM;
+const numBatches = process.env.NODE_ENV === 'test' ? 1 : process.env.PRIMARY_RECORD_BATCH_NUM;
 
 const generateTestimonials = (courses, filenum, id) => {
   const testimonials = [];
