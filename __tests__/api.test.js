@@ -1,18 +1,22 @@
 /* eslint-disable no-underscore-dangle */
 require('dotenv').config();
+require('../db/generators/instructorsGenerator.js');
+require('../db/generators/offeredBysGenerator.js');
+require('../db/generators/testimonialsGenerator.js');
 const supertest = require('supertest');
 const mongoose = require('mongoose');
 const app = require('../server/api.js');
 const { InstructorsModel, OfferedBysModel, TestimonialsModel } = require('../db/models.js');
 const { instructorsInsert, offeredBysInsert, testimonialsInsert } = require('../db/methods.js');
-const instructorsData = require('../db/data/instructors.json');
-const offeredBysData = require('../db/data/offeredBys.json');
-const testimonialsData = require('../db/data/testimonials.json');
+const instructorsData = require('../db/seeders/instructors_1.json');
+const offeredBysData = require('../db/seeders/offeredbys_1.json');
+const testimonialsData = require('../db/seeders/testimonials_1.json');
 
 const request = supertest(app);
 
 beforeAll(async (done) => {
   mongoose.connect(`mongodb://${process.env.DB_HOSTNAME}:${process.env.DB_PORT}/test`, { useNewUrlParser: true, useUnifiedTopology: true });
+
   await InstructorsModel.deleteMany({});
   await OfferedBysModel.deleteMany({});
   await TestimonialsModel.deleteMany({});
@@ -25,6 +29,20 @@ beforeAll(async (done) => {
 afterAll(async (done) => {
   await mongoose.connection.close();
   done();
+});
+
+describe('General', () => {
+  test('Default page should load', async (done) => {
+    const response = await request.get('/').send();
+    expect(response.status).toBe(200);
+    done();
+  });
+
+  test('Default page should load with a course number', async (done) => {
+    const response = await request.get('/1').send();
+    expect(response.status).toBe(200);
+    done();
+  });
 });
 
 describe('Test CRUD requests for instructors', () => {
@@ -96,6 +114,12 @@ describe('Test CRUD requests for instructors', () => {
     done();
   });
 
+  test('should return status code 400 if cannot get the document _id', async (done) => {
+    const response = await request.get('/api/instructors/999').send();
+    expect(response.status).toBe(400);
+    done();
+  });
+
   test('should be able read multiple documents from instructors', async (done) => {
     const response = await request.get('/api/instructors/101,102,103').send();
     expect(response.status).toBe(200);
@@ -127,6 +151,13 @@ describe('Test CRUD requests for instructors', () => {
     expect(response.body.firstName).toBe('EditedTester');
     const check = await request.get('/api/instructors/101').send();
     expect(check.body[0].firstName).toBe('EditedTester');
+    done();
+  });
+
+  test('should return status code 400 if cannot update the document _id', async (done) => {
+    const data = { firstName: 'EditedTester' };
+    const response = await request.put('/api/instructors/999').send(data);
+    expect(response.status).toBe(400);
     done();
   });
 
@@ -198,6 +229,12 @@ describe('Test CRUD requests for offeredBys', () => {
     done();
   });
 
+  test('should return status code 400 if cannot get the document _id', async (done) => {
+    const response = await request.put('/api/offeredbys/999').send();
+    expect(response.status).toBe(400);
+    done();
+  });
+
   test('should be able to update a document from offeredBys', async (done) => {
     const data = { offeredByName: 'University of TESTEDIT' };
 
@@ -206,6 +243,13 @@ describe('Test CRUD requests for offeredBys', () => {
     expect(response.body.offeredByName).toBe('University of TESTEDIT');
     const check = await request.get('/api/offeredbys/101').send();
     expect(check.body[0].offeredByName).toBe('University of TESTEDIT');
+    done();
+  });
+
+  test('should return status code 400 if cannot update the document _id', async (done) => {
+    const data = { offeredByName: 'EditedTester Offered Name' };
+    const response = await request.put('/api/offeredbys/999').send(data);
+    expect(response.status).toBe(400);
     done();
   });
 
@@ -228,7 +272,6 @@ describe('Test CRUD requests for testimonials', () => {
 
     const response = await request.post('/api/testimonals').send(data);
     expect(response.status).toBe(200);
-    expect(response.body[0]._id).toBe(301);
     expect(response.body[0].name).toBe('HELLO TEST');
     done();
   });
@@ -247,45 +290,55 @@ describe('Test CRUD requests for testimonials', () => {
 
     const response = await request.post('/api/testimonals').send(data);
     expect(response.status).toBe(200);
-    expect(response.body[0]._id).toBe(302);
-    expect(response.body[1]._id).toBe(303);
     expect(response.body[0].name).toBe('TEST 2');
     expect(response.body[1].name).toBe('TEST 3');
     done();
   });
 
   test('should be able to read 1 document from testimonials', async (done) => {
-    const response = await request.get('/api/testimonials/301').send();
+    const response = await request.get('/api/testimonials/1').send();
     expect(response.status).toBe(200);
-    expect(response.body[0].name).toBe('HELLO TEST');
+    expect(response.body.length).toBe(1);
     done();
   });
 
   test('should be able read multiple documents from testimonials', async (done) => {
-    const response = await request.get('/api/testimonials/301,302,303').send();
+    const response = await request.get('/api/testimonials/1,2,3').send();
     expect(response.status).toBe(200);
-    expect(response.body[0].name).toBe('HELLO TEST');
-    expect(response.body[1].name).toBe('TEST 2');
-    expect(response.body[2].name).toBe('TEST 3');
+    expect(response.body.length).toBe(3);
+    done();
+  });
+
+  test('should return status code 400 if cannot get the document _id', async (done) => {
+    const response = await request.put('/api/testimonials/9999').send();
+    expect(response.status).toBe(400);
     done();
   });
 
   test('should be able to update a document from testimonials', async (done) => {
     const data = { name: 'TEST ZERO' };
 
-    const response = await request.put('/api/testimonials/301').send(data);
+    const response = await request.put('/api/testimonials/1').send(data);
     expect(response.status).toBe(200);
     expect(response.body.name).toBe('TEST ZERO');
-    const check = await request.get('/api/testimonials/301').send();
+    const check = await request.get('/api/testimonials/1').send();
     expect(check.body[0].name).toBe('TEST ZERO');
     done();
   });
 
+  test('should return status code 400 if cannot update the document _id', async (done) => {
+    const data = { name: 'EditedTester' };
+    const response = await request.put('/api/testimonials/9999').send(data);
+    expect(response.status).toBe(400);
+    done();
+  });
+
   test('should be able to delete a document from testimonials', async (done) => {
-    const response = await request.del('/api/testimonals/303').send();
+    const initDocs = await TestimonialsModel.countDocuments({});
+    const response = await request.del('/api/testimonals/1').send();
     expect(response.status).toBe(200);
     const check = await TestimonialsModel.countDocuments({});
-    expect(check).toBe(302);
+    expect(initDocs - check).toBe(1);
     done();
   });
 });

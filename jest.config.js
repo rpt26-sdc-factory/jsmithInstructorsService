@@ -5,7 +5,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['/node_modules/'],
   collectCoverageFrom: [
     '**/server/*.{js,jsx}',
-    '**/db/*.{js,jsx}',
+    '**/server/controllers/*.js',
     '!**/node_modules/**',
     '!**/server/index.js',
     '!**/db/database.js',

@@ -1,10 +1,14 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-console */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-nested-ternary */
-// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config();
 const faker = require('faker');
-// const fs = require('fs');
+const fs = require('fs');
 
-const generateInstructors = (entries) => {
+const batchSize = process.env.NODE_ENV === 'test' ? 100 : process.env.PRIMARY_RECORD_BATCH_SIZE;
+const numBatches = process.env.NODE_ENV === 'test' ? 1 : process.env.PRIMARY_RECORD_BATCH__NUM;
+const generateInstructors = (entries, filenum) => {
   const instructors = [];
 
   const schools = [
@@ -52,6 +56,7 @@ const generateInstructors = (entries) => {
       }
 
       const instructor = {
+        _id: (id + (filenum - 1) * entries),
         firstName: faker.name.firstName(),
         middleInitial: faker.name.middleName().slice(0, 1).toUpperCase(),
         lastName: faker.name.lastName(),
@@ -74,10 +79,10 @@ const generateInstructors = (entries) => {
   const addPrimaryInstructors = (numCourses) => {
     const courseInstructors = [];
     for (let i = 1; i <= numCourses; i++) {
-      courseInstructors.push(Math.floor(Math.random() * 40) + 1);
+      courseInstructors.push(Math.floor(Math.random() * numCourses * 0.4) + 1);
     }
 
-    for (let i = 1; i <= courseInstructors; i++) {
+    for (let i = 1; i < courseInstructors.length; i++) {
       const courseObj = {
         courseNumber: i,
         isPrimaryInstructor: true,
@@ -94,7 +99,7 @@ const generateInstructors = (entries) => {
       const assistants = [];
 
       while (assistants.length < numberOfAssistants) {
-        const assistantIndex = Math.floor(Math.random() * 61) + 39;
+        const assistantIndex = Math.floor(Math.random() * numCourses * 0.6) + numCourses * 0.4;
 
         // prevents the same instructor from being added twice to the same course
         if (!assistants.includes(assistantIndex)) {
@@ -114,8 +119,17 @@ const generateInstructors = (entries) => {
   createInstructors(entries);
   addPrimaryInstructors(entries);
   addAssistantInstructors(entries);
-  // fs.writeFileSync('./db/data/instructors.json', JSON.stringify(instructors, null, '\t'));
+  fs.writeFileSync(`./db/seeders/instructors_${filenum}.json`, JSON.stringify(instructors, null, '\t'));
   return instructors;
 };
+
+let count = 1;
+const start = new Date();
+while (count <= numBatches) {
+  generateInstructors(batchSize, count);
+  count++;
+}
+const end = new Date();
+console.log('Time to complete: ', end - start, 'ms');
 
 module.exports = generateInstructors;
