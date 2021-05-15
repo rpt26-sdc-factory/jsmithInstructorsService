@@ -32,3 +32,4 @@ dist/
 bundle.js
 db/seeders/*.json
 db/seeders/*.csv
+db/seeders/postgres/reset.sql
