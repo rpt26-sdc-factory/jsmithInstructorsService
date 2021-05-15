@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-plusplus */
-const { OfferedBysModel } = require('../../db/models.js');
+const { OfferedBysModel } = require('../../../db/mongo/models.js');
 
 const offeredBysInsert = async (req, res) => {
   const data = req.body;

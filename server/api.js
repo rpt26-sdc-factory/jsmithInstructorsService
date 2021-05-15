@@ -1,7 +1,11 @@
+/* eslint-disable import/no-dynamic-require */
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+
+const env = process.env.NODE_ENV === 'test' ? 'mongo' : process.env.NODE_ENV;
+
 const {
   createInstructors,
   getAllInstructors,
@@ -9,20 +13,16 @@ const {
   getPrimaryInstructor,
   setInstructor,
   deleteInstructor,
-} = require('./controllers/instructors.js');
-const {
   offeredBysInsert,
   getAllOfferedBys,
   getOfferedBys,
   setOfferedBy,
   deleteOfferedBy,
-} = require('./controllers/offeredbys.js');
-const {
   testimonialsInsert,
   getTestimonials,
   setTestimonial,
   deleteTestimonial,
-} = require('./controllers/testimonials.js');
+} = require(`./controllers/${env}/controllers.js`);
 
 const app = express();
 

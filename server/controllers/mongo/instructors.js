@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-plusplus */
-const { InstructorsModel } = require('../../db/models.js');
+const { InstructorsModel } = require('../../../db/mongo/models.js');
 
 const createInstructors = async (req, res) => {
   const data = req.body;

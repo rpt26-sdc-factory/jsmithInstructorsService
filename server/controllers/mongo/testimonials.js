@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-plusplus */
-const { TestimonialsModel } = require('../../db/models.js');
+const { TestimonialsModel } = require('../../../db/mongo/models.js');
 
 const testimonialsInsert = async (req, res) => {
   const data = req.body;
