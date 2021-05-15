@@ -31,3 +31,4 @@ dist/
 *.pem
 bundle.js
 db/seeders/*.json
+db/seeders/*.csv
