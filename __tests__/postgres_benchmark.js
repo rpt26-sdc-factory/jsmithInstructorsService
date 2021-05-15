@@ -12,12 +12,12 @@ const client = require('../db/postgres/database.js');
   const newInstructor = await client.query(sql);
   sql = {
     text: 'INSERT INTO coursera.assistant_instructors(course_id, instructor_id) VALUES ($1, $2)',
-    values: [3002032, newInstructor.instructor_id],
+    values: [90002032, newInstructor.instructor_id],
   };
   await client.query(sql);
   sql = {
     text: 'INSERT INTO coursera.primary_instructors(course_id, instructor_id) VALUES ($1, $2)',
-    values: [10000005, newInstructor.instructor_id],
+    values: [10000007, newInstructor.instructor_id],
   };
   await client.query(sql);
   console.timeEnd('CREATE instructors');
@@ -33,7 +33,7 @@ const client = require('../db/postgres/database.js');
   console.time('UPDATE instructors');
   sql = {
     text: 'UPDATE coursera.instructor_details SET firstname = $1 WHERE instructor_id = $2',
-    values: ['Testupdate', 88888888],
+    values: ['Testupdate', 98888888],
   };
   await client.query(sql);
   console.timeEnd('UPDATE instructors');
@@ -41,17 +41,17 @@ const client = require('../db/postgres/database.js');
   console.time('DELETE instructors');
   sql = {
     text: 'DELETE FROM coursera.instructor_details WHERE instructor_id = $1',
-    values: [88888890],
+    values: [98888890],
   };
   await client.query(sql);
   sql = {
     text: 'DELETE FROM coursera.assistant_instructors WHERE instructor_id = $1',
-    values: [88888890],
+    values: [98888890],
   };
   await client.query(sql);
   sql = {
     text: 'DELETE FROM coursera.primary_instructors WHERE instructor_id = $1',
-    values: [88888890],
+    values: [98888890],
   };
   await client.query(sql);
   console.timeEnd('DELETE instructors');
