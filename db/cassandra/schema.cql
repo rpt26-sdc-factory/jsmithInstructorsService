@@ -20,9 +20,10 @@ CREATE TABLE IF NOT EXISTS coursera.primary_instructors (
 );
 
 CREATE TABLE IF NOT EXISTS coursera.assistant_instructors (
-  assistant_id int PRIMARY KEY,
+  assistant_id int,
   course_id int,
-  instructor_id int
+  instructor_id int,
+  PRIMARY KEY (assistant_id, course_id)
 );
 
 
