@@ -127,7 +127,7 @@ const client = require('../db/postgres/database.js');
   console.time('READ testimonials');
   sql = {
     text: 'SELECT * FROM coursera.testimonials WHERE course_id=$1::int',
-    values: [response.rows[0].testimonial_id],
+    values: [10000001],
   };
   await client.query(sql);
   console.timeEnd('READ testimonials');
@@ -135,7 +135,7 @@ const client = require('../db/postgres/database.js');
   console.time('UPDATE testimonials');
   sql = {
     text: 'UPDATE coursera.testimonials SET username = $1::text, testimonial=$2::text WHERE course_id = $3::int',
-    values: ['Testupdate', 'Test updated description.', response.rows[0].testimonial_id],
+    values: ['Testupdate', 'Test updated description.', 10000001],
   };
   await client.query(sql);
   console.timeEnd('UPDATE testimonials');
