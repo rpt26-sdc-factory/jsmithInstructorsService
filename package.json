@@ -13,6 +13,8 @@
     "seed:mongo": "bash db/seeders/mongodb/seedAll.sh",
     "seed:cassandra": "bash db/seeders/cassandra/seed_csv.sh",
     "seed:postgres": "psql -f db/seeders/postgres/seed.sql",
+    "benchmark:cassandra": "node __tests__/cassandra_benchmark.js",
+    "benchmark:postgres": "node __tests__/postgres_benchmark.js",
     "test": "jest --detectOpenHandles --coverage",
     "start": "node server/index.js",
     "react-dev": "webpack --watch",
