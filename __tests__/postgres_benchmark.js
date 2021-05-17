@@ -25,15 +25,15 @@ const client = require('../db/postgres/database.js');
 
   sql = {
     text: 'INSERT INTO coursera.primary_instructors(course_id, instructor_id) VALUES ($1, $2)',
-    values: [10000012, response.rows[0].instructor_id],
+    values: [10000013, response.rows[0].instructor_id],
   };
   await client.query(sql);
   console.timeEnd('CREATE instructors');
 
   console.time('READ instructors');
   sql = {
-    text: 'SELECT * FROM coursera.instructor_details WHERE instructor_id IN (SELECT instructor_id FROM coursera.primary_instructors WHERE course_id = $1::int) OR instructor_id IN (SELECT instructor_id FROM coursera.assistant_instructors WHERE course_id = $1::int)',
-    values: [10000012],
+    text: 'WITH ids AS (SELECT DISTINCT instructor_id FROM ((SELECT instructor_id FROM coursera.primary_instructors WHERE course_id = $1::int) UNION ALL (SELECT instructor_id FROM coursera.assistant_instructors WHERE course_id = $1::int)) t) SELECT * FROM coursera.primary_instructors WHERE instructor_id IN (SELECT instructor_id FROM ids)',
+    values: [10000013],
   };
   await client.query(sql);
   console.timeEnd('READ instructors');
