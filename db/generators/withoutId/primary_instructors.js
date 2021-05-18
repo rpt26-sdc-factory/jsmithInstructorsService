@@ -6,7 +6,7 @@ const fs = require('fs');
 const generatePrimaryInstructors = (numCourses) => {
   const primaryInstructors = ['course_id,instructor_id'];
   for (let i = 1; i <= numCourses; i++) {
-    const instructorId = Math.floor(Math.random() * numCourses);
+    const instructorId = Math.floor(Math.random() * numCourses) + 1;
     primaryInstructors.push(`${i},${instructorId}`);
   }
 

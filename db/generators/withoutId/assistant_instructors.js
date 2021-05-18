@@ -10,7 +10,7 @@ const generateAssistantInstructors = (numCourses) => {
     const assistants = [];
 
     while (assistants.length < numberOfAssistants) {
-      const assistantIndex = Math.floor(Math.random() * numCourses);
+      const assistantIndex = Math.floor(Math.random() * numCourses) + 1;
 
       // prevents the same instructor from being added twice to the same course
       if (!assistants.includes(assistantIndex)) {
