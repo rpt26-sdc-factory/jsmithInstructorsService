@@ -6,33 +6,31 @@ const client = require('../db/postgres/database.js');
   console.log('INSTRUCTORS');
   console.time('CREATE instructors');
   let sql = {
-    text: 'INSERT INTO coursera.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int)',
+    text: 'INSERT INTO coursera.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int) RETURNING instructor_id',
     values: ['Test', 'P.', 'Testerson', 'Test MD', 'Test Professor', 'Test University', 12345, '5', 123],
   };
-  await client.query(sql);
-
-  sql = {
-    text: 'SELECT MAX(instructor_id) AS instructor_id FROM coursera.instructor_details',
-    values: [],
-  };
   let response = await client.query(sql);
+  console.timeEnd('CREATE instructors');
 
+  console.time('CREATE assistant instructor');
   sql = {
-    text: 'INSERT INTO coursera.assistant_instructors(course_id, instructor_id) VALUES ($1::int, $2::int)',
-    values: [90002032, response.rows[0].instructor_id],
+    text: 'INSERT INTO coursera.assistant_instructors(course_id,instructor_id) VALUES ($1::int,$2::int), ($3::int,$4::int)',
+    values: [90002032, response.rows[0].instructor_id, 89888887, response.rows[0].instructor_id],
   };
   await client.query(sql);
+  console.timeEnd('CREATE assistant instructor');
 
+  console.time('CREATE primary instructor');
   sql = {
-    text: 'INSERT INTO coursera.primary_instructors(course_id, instructor_id) VALUES ($1, $2)',
+    text: 'INSERT INTO coursera.primary_instructors(course_id,instructor_id) VALUES ($1,$2)',
     values: [10000013, response.rows[0].instructor_id],
   };
   await client.query(sql);
-  console.timeEnd('CREATE instructors');
+  console.timeEnd('CREATE primary instructor');
 
   console.time('READ instructors');
   sql = {
-    text: 'WITH ids AS (SELECT DISTINCT instructor_id FROM ((SELECT instructor_id FROM coursera.primary_instructors WHERE course_id = $1::int) UNION ALL (SELECT instructor_id FROM coursera.assistant_instructors WHERE course_id = $1::int)) t) SELECT * FROM coursera.primary_instructors WHERE instructor_id IN (SELECT instructor_id FROM ids)',
+    text: 'WITH ids AS (SELECT instructor_id FROM ((SELECT instructor_id FROM coursera.primary_instructors WHERE course_id = $1::int) UNION ALL (SELECT instructor_id FROM coursera.assistant_instructors WHERE course_id = $1::int)) t) SELECT * FROM coursera.instructor_details WHERE instructor_id IN (SELECT instructor_id FROM ids)',
     values: [10000013],
   };
   await client.query(sql);
@@ -52,38 +50,16 @@ const client = require('../db/postgres/database.js');
     values: [response.rows[0].instructor_id],
   };
   await client.query(sql);
-  sql = {
-    text: 'DELETE FROM coursera.assistant_instructors WHERE instructor_id = $1::int',
-    values: [response.rows[0].instructor_id],
-  };
-  await client.query(sql);
-  sql = {
-    text: 'DELETE FROM coursera.primary_instructors WHERE instructor_id = $1::int',
-    values: [response.rows[0].instructor_id],
-  };
-  await client.query(sql);
-
-  sql = {
-    text: 'SELECT * FROM coursera.primary_instructors WHERE instructor_id = $1::int',
-    values: [response.rows[0].instructor_id],
-  };
-  response = await client.query(sql);
   console.timeEnd('DELETE instructors');
 
   console.log('\n\nOFFERED BYS');
   console.time('CREATE offered bys');
   sql = {
-    text: 'INSERT INTO coursera.offeredbys(offeredby_id, offeredby_name, offeredby_description) VALUES ($1::int, $2::text, $3::text)',
+    text: 'INSERT INTO coursera.offeredbys(offeredby_id, offeredby_name, offeredby_description) VALUES ($1::int, $2::text, $3::text) RETURNING course_id',
     values: [7, 'Test', 'Test description.'],
   };
-  await client.query(sql);
-  console.timeEnd('CREATE offered bys');
-
-  sql = {
-    text: 'SELECT MAX(course_id) AS course_id FROM coursera.offeredbys',
-    values: [],
-  };
   response = await client.query(sql);
+  console.timeEnd('CREATE offered bys');
 
   console.time('READ offered bys');
   sql = {
@@ -112,22 +88,16 @@ const client = require('../db/postgres/database.js');
   console.log('\n\nTESTIMONIALS');
   console.time('CREATE testimonials');
   sql = {
-    text: 'INSERT INTO coursera.testimonials(course_id, username, testimonial) VALUES ($1::int, $2::text, $3::text)',
+    text: 'INSERT INTO coursera.testimonials(course_id, username, testimonial) VALUES ($1::int, $2::text, $3::text) RETURNING testimonial_id',
     values: [10000001, 'Test Name', 'This is a fake testimonial.'],
   };
-  await client.query(sql);
-  console.timeEnd('CREATE testimonials');
-
-  sql = {
-    text: 'SELECT MAX(testimonial_id) AS testimonial_id FROM coursera.testimonials',
-    values: [],
-  };
   response = await client.query(sql);
+  console.timeEnd('CREATE testimonials');
 
   console.time('READ testimonials');
   sql = {
     text: 'SELECT * FROM coursera.testimonials WHERE course_id=$1::int',
-    values: [10000001],
+    values: [9999999],
   };
   await client.query(sql);
   console.timeEnd('READ testimonials');
@@ -135,7 +105,7 @@ const client = require('../db/postgres/database.js');
   console.time('UPDATE testimonials');
   sql = {
     text: 'UPDATE coursera.testimonials SET username = $1::text, testimonial=$2::text WHERE course_id = $3::int',
-    values: ['Testupdate', 'Test updated description.', 10000001],
+    values: ['Testupdate', 'Test updated description.', 29999999],
   };
   await client.query(sql);
   console.timeEnd('UPDATE testimonials');
