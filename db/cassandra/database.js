@@ -11,3 +11,5 @@ const client = new cass.Client({
 client.connect()
   .then(() => console.log(`Connection to ${process.env.DB_HOST}:${process.env.CASSANDRA_PORT} has been successful!`))
   .catch((err) => console.error(err));
+
+module.exports = client;

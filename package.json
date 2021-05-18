@@ -8,13 +8,13 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "generate:instructors": "node db/generators/instructorsGenerator.js",
-    "generate:offeredbys": "node db/generators/offeredBysGenerator.js",
-    "generate:testimonials": "node db/generators/testimonialsGenerator.js",
-    "generate:all": "bash /Users/rieuna/Documents/GitHub/vbao-instructor-service/db/generators/generate_csv.sh",
+    "generate:csv_id": "node db/generators/generate_csv_id.sh",
+    "generate:csv_noid": "node db/generators/generate_csv_noId.sh",
     "seed:mongo": "bash db/seeders/mongodb/seedAll.sh",
-    "seed:cassandra": "bash db/seeders/cassandra/seedAll.sh",
-    "seed:postgres": "psql -f /Users/rieuna/Documents/GitHub/vbao-instructor-service/db/seeders/postgres/seed.sql",
+    "seed:cassandra": "bash db/seeders/cassandra/seed_csv.sh",
+    "seed:postgres": "psql -f db/seeders/postgres/seed.sql",
+    "benchmark:cassandra": "node __tests__/cassandra_benchmark.js",
+    "benchmark:postgres": "node __tests__/postgres_benchmark.js",
     "test": "jest --detectOpenHandles --coverage",
     "start": "node server/index.js",
     "react-dev": "webpack --watch",
@@ -31,6 +31,7 @@
     "jest": "^26.6.3",
     "mongoose": "^5.12.0",
     "path": "^0.12.7",
+    "pg": "^8.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

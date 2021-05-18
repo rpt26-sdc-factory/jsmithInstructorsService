@@ -31,5 +31,5 @@ dist/
 *.pem
 bundle.js
 db/seeders/*.json
-db/seeders/*.csv
-db/seeders/postgres/reset.sql
+db/seeders/**/*.csv
+db/seeders/**/*.sql

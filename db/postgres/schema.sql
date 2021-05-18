@@ -1,16 +1,5 @@
 CREATE SCHEMA IF NOT EXISTS coursera;
 
-CREATE TABLE IF NOT EXISTS coursera.assistant_instructors(
-  assistant_id SERIAL PRIMARY KEY,
-  course_id int,
-  instructor_id int
-);
-
-CREATE TABLE IF NOT EXISTS coursera.primary_instructors(
-  course_id int PRIMARY KEY NOT NULL,
-  instructor_id int
-);
-
 CREATE TABLE IF NOT EXISTS coursera.instructor_details(
   instructor_id SERIAL PRIMARY KEY,
   firstname text NOT NULL,
@@ -22,6 +11,17 @@ CREATE TABLE IF NOT EXISTS coursera.instructor_details(
   learners int,
   instructor_avg_rating text,
   num_ratings int
+);
+
+CREATE TABLE IF NOT EXISTS coursera.assistant_instructors(
+  assistant_id SERIAL PRIMARY KEY,
+  course_id int,
+  instructor_id int REFERENCES coursera.instructor_details ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS coursera.primary_instructors(
+  course_id int PRIMARY KEY NOT NULL,
+  instructor_id int REFERENCES coursera.instructor_details ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS coursera.offeredbys(
@@ -37,3 +37,13 @@ CREATE TABLE IF NOT EXISTS coursera.testimonials(
   username text NOT NULL,
   testimonial text NOT NULL
 );
+
+CREATE INDEX index_assistant_instructors_course_id ON coursera.assistant_instructors(course_id);
+
+CREATE INDEX index_assistant_instructors_instructor_id ON coursera.assistant_instructors(instructor_id);
+
+CREATE INDEX index_primary_instructors_instructor_id ON coursera.primary_instructors(instructor_id);
+
+CREATE INDEX index_offeredbys_offeredby_id ON coursera.offeredbys(offeredby_id);
+
+CREATE INDEX index_testimonials_course_id ON coursera.testimonials(course_id);

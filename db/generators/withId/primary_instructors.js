@@ -10,15 +10,14 @@ const generatePrimaryInstructors = (numCourses) => {
     primaryInstructors.push(`${i},${instructorId}`);
   }
 
-  const stream = fs.createWriteStream('./db/seeders/primary_instructors.csv', { flags: 'w' });
+  const stream = fs.createWriteStream('./db/seeders/id_primary_instructors.csv', { flags: 'w' });
   const instructorsString = primaryInstructors.join('\n');
   stream.write(instructorsString);
   return primaryInstructors;
 };
 
-const start = new Date();
+console.time('Generate primary_instructors');
 generatePrimaryInstructors(10000000);
-const end = new Date();
-console.log('Time to complete: ', end - start, 'ms');
+console.timeEnd('Generate primary_instructors');
 
 module.exports = generatePrimaryInstructors;
