@@ -8,13 +8,11 @@ const env = process.env.NODE_ENV === 'test' ? 'mongo' : process.env.NODE_ENV;
 
 const {
   createInstructors,
-  getAllInstructors,
   getInstructors,
   getPrimaryInstructor,
   setInstructor,
   deleteInstructor,
   offeredBysInsert,
-  getAllOfferedBys,
   getOfferedBys,
   setOfferedBy,
   deleteOfferedBy,
@@ -41,10 +39,8 @@ app.post('/api/offeredbys', offeredBysInsert);
 app.post('/api/testimonals', testimonialsInsert);
 
 // READ
-app.get('/api/allinstructors', getAllInstructors);
 app.get('/api/instructors/:instructorId', getInstructors);
 app.get('/api/primaryinstructor/:courseNumber', getPrimaryInstructor);
-app.get('/api/offeredbyall', getAllOfferedBys);
 app.get('/api/offeredbys/:courseNumbers', getOfferedBys);
 app.get('/api/testimonials/:courseNumbers', getTestimonials);
 
