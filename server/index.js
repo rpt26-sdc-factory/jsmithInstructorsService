@@ -10,6 +10,9 @@ switch (process.env.NODE_ENV) {
   case 'cassandra':
     require('../db/cassandra/database.js');
     break;
+  case 'postgres':
+    require('../db/postgres/database.js');
+    break;
   default:
     require('../db/mongo/database.js');
     break;
