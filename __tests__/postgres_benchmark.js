@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 const client = require('../db/postgres/database.js');
 
@@ -5,33 +6,37 @@ const client = require('../db/postgres/database.js');
   console.log('POSTGRES BENCHMARKING');
   console.log('INSTRUCTORS');
   console.time('CREATE instructors');
+  // let sql = {
+  //   text: 'INSERT INTO coursera.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int) RETURNING instructor_id',
+  //   values: ['Test', 'P.', 'Testerson', 'Test MD', 'Test Professor', 'Test University', 12345, '5', 123],
+  // };
   let sql = {
-    text: 'INSERT INTO coursera.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int) RETURNING instructor_id',
-    values: ['Test', 'P.', 'Testerson', 'Test MD', 'Test Professor', 'Test University', 12345, '5', 123],
+    text: 'WITH new_instructor AS (INSERT INTO coursera.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int) RETURNING instructor_id), new_primary_instructor AS (INSERT INTO coursera.primary_instructors(course_id,instructor_id) VALUES ($10::int,(SELECT instructor_id FROM new_instructor))) INSERT INTO coursera.assistant_instructors(course_id,instructor_id) VALUES ($10::int,(SELECT instructor_id FROM new_instructor)) RETURNING instructor_id',
+    values: ['Test', 'P.', 'Testerson', 'Test MD', 'Test Professor', 'Test University', 12345, '5', 123, 10000018],
   };
   let response = await client.query(sql);
   console.timeEnd('CREATE instructors');
 
-  console.time('CREATE assistant instructor');
-  sql = {
-    text: 'INSERT INTO coursera.assistant_instructors(course_id,instructor_id) VALUES ($1::int,$2::int), ($3::int,$4::int)',
-    values: [90002032, response.rows[0].instructor_id, 89888887, response.rows[0].instructor_id],
-  };
-  await client.query(sql);
-  console.timeEnd('CREATE assistant instructor');
+  // console.time('CREATE assistant instructor');
+  // sql = {
+  //   text: 'INSERT INTO coursera.assistant_instructors(course_id,instructor_id) VALUES ($1::int,$2::int), ($3::int,$4::int)',
+  //   values: [90002032, response.rows[0].instructor_id, 89888887, response.rows[0].instructor_id],
+  // };
+  // await client.query(sql);
+  // console.timeEnd('CREATE assistant instructor');
 
-  console.time('CREATE primary instructor');
-  sql = {
-    text: 'INSERT INTO coursera.primary_instructors(course_id,instructor_id) VALUES ($1,$2)',
-    values: [10000013, response.rows[0].instructor_id],
-  };
-  await client.query(sql);
-  console.timeEnd('CREATE primary instructor');
+  // console.time('CREATE primary instructor');
+  // sql = {
+  //   text: 'INSERT INTO coursera.primary_instructors(course_id,instructor_id) VALUES ($1,$2)',
+  //   values: [10000017, response.rows[0].instructor_id],
+  // };
+  // await client.query(sql);
+  // console.timeEnd('CREATE primary instructor');
 
   console.time('READ instructors');
   sql = {
-    text: 'WITH ids AS (SELECT instructor_id FROM ((SELECT instructor_id FROM coursera.primary_instructors WHERE course_id = $1::int) UNION ALL (SELECT instructor_id FROM coursera.assistant_instructors WHERE course_id = $1::int)) t) SELECT * FROM coursera.instructor_details WHERE instructor_id IN (SELECT instructor_id FROM ids)',
-    values: [10000013],
+    text: 'WITH ids AS (SELECT instructor_id, is_primary_instructor FROM ((SELECT instructor_id, 1 AS is_primary_instructor FROM coursera.primary_instructors WHERE course_id = $1::int) UNION ALL (SELECT instructor_id, 0 AS is_primary_instructor FROM coursera.assistant_instructors WHERE course_id = $1::int)) t) SELECT * FROM coursera.instructor_details t1 INNER JOIN (SELECT * FROM ids) t2 ON t1.instructor_id=t2.instructor_id',
+    values: [10000017],
   };
   await client.query(sql);
   console.timeEnd('READ instructors');
