@@ -10,7 +10,7 @@ const offeredBysInsert = async (req, res) => {
     data.offeredby_description,
   ];
   const sql = {
-    text: 'INSERT INTO coursera.offeredbys (offeredby_id,offeredby_name,offeredby_description) VALUES ($1::int, $2::text, $3::text)',
+    text: 'INSERT INTO coursera.offeredbys (offeredby_id,offeredby_name,offeredby_description) VALUES ($1::int, $2::text, $3::text) RETURNING course_id',
     values: options,
   };
   const response = await client.query(sql);
@@ -34,7 +34,7 @@ const setOfferedBy = async (req, res) => {
     options.push(`${key}=${val}`);
   });
   const sql = {
-    text: `UPDATE coursera.offeredbys SET (${options}) WHERE course_id=$1::int`,
+    text: `UPDATE coursera.offeredbys SET (${options}) WHERE course_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
     values: courseNumber,
   };
   const response = await client.query(sql);

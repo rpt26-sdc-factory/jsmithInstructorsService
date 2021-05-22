@@ -75,7 +75,7 @@ const setInstructor = async (req, res) => {
     options.push(`${key}=${val}`);
   });
   const sql = {
-    text: `UPDATE coursera.instructor_details SET ${options} WHERE instructor_id = ${id}::int`,
+    text: `UPDATE coursera.instructor_details SET ${options} WHERE instructor_id = ${id}::int RETURNING ${Object.keys(req.body).join(',')}`,
     values: [],
   };
   const response = await client.query(sql);
