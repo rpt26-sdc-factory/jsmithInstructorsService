@@ -34,7 +34,7 @@ const createInstructors = async (req, res) => {
     }
   });
   if (primaryInstructors.length && assistInstructors.length) {
-    query = `WITH new_instructor AS (INSERT INTO ${schema}.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int) RETURNING instructor_id), new_primary_instructor AS (INSERT INTO ${schema}.primary_instructors(course_id,instructor_id) VALUES ${primaryInstructors.join(',')} ) INSERT INTO ${schema}.assistant_instructors(course_id,instructor_id) VALUES ${assistInstructors.join(',')} RETURNING instructor_id`;
+    query = `WITH new_instructor AS (INSERT INTO ${schema}.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int) RETURNING instructor_id), new_primary_instructor AS (INSERT INTO ${schema}.primary_instructors(course_id,instructor_id) VALUES ${primaryInstructors.join(',')}) INSERT INTO ${schema}.assistant_instructors(course_id,instructor_id) VALUES ${assistInstructors.join(',')} RETURNING instructor_id`;
   } else if (primaryInstructors.length && !assistInstructors.length) {
     query = `WITH new_instructor AS (INSERT INTO ${schema}.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int) RETURNING instructor_id) INSERT INTO ${schema}.primary_instructors(course_id,instructor_id) VALUES ${primaryInstructors.join(',')}) RETURNING instructor_id`;
   } else if (!primaryInstructors.length && assistInstructors.length) {
@@ -73,7 +73,7 @@ const getPrimaryInstructor = async (req, res) => {
   const courseId = parseInt(req.params.courseNumber, 10);
   const sql = {
     text: `SELECT * FROM ${schema}.instructor_details WHERE instructor_id IN (SELECT instructor_id FROM ${schema}.primary_instructors WHERE course_id=$1::int)`,
-    values: courseId,
+    values: [courseId],
   };
   try {
     const response = await client.query(sql);
@@ -87,11 +87,11 @@ const getPrimaryInstructor = async (req, res) => {
 const setInstructor = async (req, res) => {
   const id = parseInt(req.params.instructorid, 10);
   const options = [];
-  Object.entries(req.body).forEach((key, val) => {
-    options.push(`${key}=${val}`);
+  Object.keys(req.body).forEach((key) => {
+    if (key !== 'num_ratings' || key !== 'learners') options.push(`${key}='${req.body[key]}'`);
   });
   const sql = {
-    text: `UPDATE ${schema}.instructor_details SET ${options} WHERE instructor_id=${id}::int RETURNING ${Object.keys(req.body).join(',')}`,
+    text: `UPDATE ${schema}.instructor_details SET ${options.join(',')} WHERE instructor_id=${id}::int RETURNING ${Object.keys(req.body).join(',')}`,
     values: [],
   };
   try {
