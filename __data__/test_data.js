@@ -42,6 +42,10 @@ module.exports = {
           courseNumber: 3,
           isPrimaryInstructor: true,
         },
+        {
+          courseNumber: 5,
+          isPrimaryInstructor: false,
+        },
       ],
       instructor_avg_rating: '4.6',
       num_ratings: 5965,
