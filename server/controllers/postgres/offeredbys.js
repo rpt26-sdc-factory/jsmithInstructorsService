@@ -13,8 +13,12 @@ const offeredBysInsert = async (req, res) => {
     text: 'INSERT INTO coursera.offeredbys (offeredby_id,offeredby_name,offeredby_description) VALUES ($1::int, $2::text, $3::text) RETURNING course_id',
     values: options,
   };
-  const response = await client.query(sql);
-  return res.send(response.rows);
+  try {
+    const response = await client.query(sql);
+    return res.send(response.rows);
+  } catch (err) {
+    return res.status(400).send(err.message);
+  }
 };
 
 const getOfferedBys = async (req, res) => {
@@ -23,8 +27,13 @@ const getOfferedBys = async (req, res) => {
     text: `SELECT * FROM coursera.offeredbys WHERE course_id=${1}`,
     values: courseNumber,
   };
-  const response = await client.query(sql);
-  return res.send(response.rows);
+  try {
+    const response = await client.query(sql);
+    if (response.rows.length === 0) throw new Error('No offered bys associated with the course number.');
+    return res.send(response.rows);
+  } catch (err) {
+    return res.status(400).send(err.message);
+  }
 };
 
 const setOfferedBy = async (req, res) => {
@@ -37,18 +46,28 @@ const setOfferedBy = async (req, res) => {
     text: `UPDATE coursera.offeredbys SET (${options}) WHERE course_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
     values: courseNumber,
   };
-  const response = await client.query(sql);
-  return res.send(response.rows);
+  try {
+    const response = await client.query(sql);
+    if (response.rows.length === 0) throw new Error('No offered bys matched the course number.');
+    return res.send(response.rows);
+  } catch (err) {
+    return res.status(400).send(err.message);
+  }
 };
 
 const deleteOfferedBy = async (req, res) => {
   const courseNumber = parseInt(req.params.courseNumber, 10);
   const sql = {
-    text: 'DELETE FROM coursera.offeredbys WHERE instructor_id=$1::int',
+    text: 'DELETE FROM coursera.offeredbys WHERE course_id=$1::int RETURNING course_id',
     values: [courseNumber],
   };
-  const response = await client.query(sql);
-  return res.send(response.rows);
+  try {
+    const response = await client.query(sql);
+    if (response.rows.length === 0) throw new Error('No offered bys matched the course number.');
+    return res.send(response.rows);
+  } catch (err) {
+    return res.status(400).send(err.message);
+  }
 };
 
 module.exports = {

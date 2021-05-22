@@ -13,8 +13,12 @@ const testimonialsInsert = async (req, res) => {
     text: 'INSERT INTO coursera.testimonials (course_id,username,testimonial) VALUES ($1::int, $2::text, $3::text)',
     values: options,
   };
-  const response = await client.query(sql);
-  return res.send(response.rows);
+  try {
+    const response = await client.query(sql);
+    return res.send(response.rows);
+  } catch (err) {
+    return res.status(400).send(err.message);
+  }
 };
 
 const getTestimonials = async (req, res) => {
@@ -23,8 +27,13 @@ const getTestimonials = async (req, res) => {
     text: `SELECT * FROM coursera.testimonials WHERE course_id=${1}`,
     values: [courseNumber],
   };
-  const response = await client.query(sql);
-  return res.send(response.rows);
+  try {
+    const response = await client.query(sql);
+    if (response.rows.length === 0) throw new Error('No testimonials associated with the course number.');
+    return res.send(response.rows);
+  } catch (err) {
+    return res.status(400).send(err.message);
+  }
 };
 
 const setTestimonial = async (req, res) => {
@@ -37,18 +46,28 @@ const setTestimonial = async (req, res) => {
     text: `UPDATE coursera.testimonials SET (${options}) WHERE testimonial_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
     values: [testimonialId],
   };
-  const response = await client.query(sql);
-  return res.send(response.rows);
+  try {
+    const response = await client.query(sql);
+    if (response.rows.length === 0) throw new Error('No matching testimonial found.');
+    return res.send(response.rows);
+  } catch (err) {
+    return res.status(400).send(err.message);
+  }
 };
 
 const deleteTestimonial = async (req, res) => {
   const testimonialId = parseInt(req.params.testimonial_id, 10);
   const sql = {
-    text: 'DELETE FROM coursera.testimonials WHERE testimonial_id=$1::int',
+    text: 'DELETE FROM coursera.testimonials WHERE testimonial_id=$1::int RETURNING testimonial_id',
     values: [testimonialId],
   };
-  const response = await client.query(sql);
-  return res.send(response.rows);
+  try {
+    const response = await client.query(sql);
+    if (response.rows.length === 0) throw new Error('No matching testimonials found.');
+    return res.send(response.rows);
+  } catch (err) {
+    return res.status(400).send(err.message);
+  }
 };
 
 module.exports = {
