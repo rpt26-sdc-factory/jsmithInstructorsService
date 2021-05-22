@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
-const env = process.env.NODE_ENV === 'test' ? 'mongo' : process.env.NODE_ENV;
+const env = process.env.NODE_ENV === 'test' ? 'postgres' : process.env.NODE_ENV;
 
 const {
   createInstructors,
