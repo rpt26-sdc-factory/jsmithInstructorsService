@@ -2,6 +2,8 @@
 /* eslint-disable no-plusplus */
 const client = require('../../../db/postgres/database.js');
 
+const schema = process.env.NODE_ENV === 'test' ? 'test' : 'coursera';
+
 const testimonialsInsert = async (req, res) => {
   const data = req.body;
   const options = [
@@ -10,7 +12,7 @@ const testimonialsInsert = async (req, res) => {
     data.testimonial,
   ];
   const sql = {
-    text: 'INSERT INTO coursera.testimonials (course_id,username,testimonial) VALUES ($1::int, $2::text, $3::text)',
+    text: `INSERT INTO ${schema}.testimonials (course_id,username,testimonial) VALUES ($1::int, $2::text, $3::text) RETURNING testimonial_id`,
     values: options,
   };
   try {
@@ -24,7 +26,7 @@ const testimonialsInsert = async (req, res) => {
 const getTestimonials = async (req, res) => {
   const courseNumber = parseInt(req.params.courseNumber, 10);
   const sql = {
-    text: `SELECT * FROM coursera.testimonials WHERE course_id=${1}`,
+    text: `SELECT * FROM ${schema}.testimonials WHERE course_id=${1}`,
     values: [courseNumber],
   };
   try {
@@ -43,7 +45,7 @@ const setTestimonial = async (req, res) => {
     options.push(`${key}=${val}`);
   });
   const sql = {
-    text: `UPDATE coursera.testimonials SET (${options}) WHERE testimonial_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
+    text: `UPDATE ${schema}.testimonials SET (${options}) WHERE testimonial_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
     values: [testimonialId],
   };
   try {
@@ -58,7 +60,7 @@ const setTestimonial = async (req, res) => {
 const deleteTestimonial = async (req, res) => {
   const testimonialId = parseInt(req.params.testimonial_id, 10);
   const sql = {
-    text: 'DELETE FROM coursera.testimonials WHERE testimonial_id=$1::int RETURNING testimonial_id',
+    text: `DELETE FROM ${schema}.testimonials WHERE testimonial_id=$1::int RETURNING testimonial_id`,
     values: [testimonialId],
   };
   try {

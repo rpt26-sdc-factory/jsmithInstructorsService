@@ -2,6 +2,8 @@
 /* eslint-disable no-plusplus */
 const client = require('../../../db/postgres/database.js');
 
+const schema = process.env.NODE_ENV === 'test' ? 'test' : 'coursera';
+
 const offeredBysInsert = async (req, res) => {
   const data = req.body;
   const options = [
@@ -10,7 +12,7 @@ const offeredBysInsert = async (req, res) => {
     data.offeredby_description,
   ];
   const sql = {
-    text: 'INSERT INTO coursera.offeredbys (offeredby_id,offeredby_name,offeredby_description) VALUES ($1::int, $2::text, $3::text) RETURNING course_id',
+    text: `INSERT INTO ${schema}.offeredbys (offeredby_id,offeredby_name,offeredby_description) VALUES ($1::int, $2::text, $3::text) RETURNING course_id`,
     values: options,
   };
   try {
@@ -24,7 +26,7 @@ const offeredBysInsert = async (req, res) => {
 const getOfferedBys = async (req, res) => {
   const courseNumber = parseInt(req.params.courseNumbers, 10);
   const sql = {
-    text: `SELECT * FROM coursera.offeredbys WHERE course_id=${1}`,
+    text: `SELECT * FROM ${schema}.offeredbys WHERE course_id=${1}`,
     values: courseNumber,
   };
   try {
@@ -43,7 +45,7 @@ const setOfferedBy = async (req, res) => {
     options.push(`${key}=${val}`);
   });
   const sql = {
-    text: `UPDATE coursera.offeredbys SET (${options}) WHERE course_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
+    text: `UPDATE ${schema}.offeredbys SET (${options}) WHERE course_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
     values: courseNumber,
   };
   try {
@@ -58,7 +60,7 @@ const setOfferedBy = async (req, res) => {
 const deleteOfferedBy = async (req, res) => {
   const courseNumber = parseInt(req.params.courseNumber, 10);
   const sql = {
-    text: 'DELETE FROM coursera.offeredbys WHERE course_id=$1::int RETURNING course_id',
+    text: `DELETE FROM ${schema}.offeredbys WHERE course_id=$1::int RETURNING course_id`,
     values: [courseNumber],
   };
   try {
