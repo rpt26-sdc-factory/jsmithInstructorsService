@@ -39,14 +39,14 @@ app.post('/api/offeredbys', offeredBysInsert);
 app.post('/api/testimonals', testimonialsInsert);
 
 // READ
-app.get('/api/instructors/:instructorId', getInstructors);
+app.get('/api/instructors/:courseNumber', getInstructors);
 app.get('/api/primaryinstructor/:courseNumber', getPrimaryInstructor);
-app.get('/api/offeredbys/:courseNumbers', getOfferedBys);
+app.get('/api/offeredbys/:courseNumber', getOfferedBys);
 app.get('/api/testimonials/:courseNumbers', getTestimonials);
 
 // UPDATE
 app.put('/api/instructors/:instructorid', setInstructor);
-app.put('/api/offeredbys/:offeredbyid', setOfferedBy);
+app.put('/api/offeredbys/:courseNumber', setOfferedBy);
 app.put('/api/testimonials/:testimonialid', setTestimonial);
 
 // DELETE
