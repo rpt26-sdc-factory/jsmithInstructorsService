@@ -24,10 +24,10 @@ const offeredBysInsert = async (req, res) => {
 };
 
 const getOfferedBys = async (req, res) => {
-  const courseNumber = parseInt(req.params.courseNumbers, 10);
+  const courseNumber = parseInt(req.params.courseNumber, 10);
   const sql = {
-    text: `SELECT * FROM ${schema}.offeredbys WHERE course_id=${1}`,
-    values: courseNumber,
+    text: `SELECT * FROM ${schema}.offeredbys WHERE course_id=$1::int`,
+    values: [courseNumber],
   };
   try {
     const response = await client.query(sql);
@@ -41,12 +41,12 @@ const getOfferedBys = async (req, res) => {
 const setOfferedBy = async (req, res) => {
   const courseNumber = parseInt(req.params.courseNumber, 10);
   const options = [];
-  Object.entries(req.body).forEach((key, val) => {
-    options.push(`${key}=${val}`);
+  Object.keys(req.body).forEach((key) => {
+    if (key !== 'offeredby_id') options.push(`${key}='${req.body[key]}'`);
   });
   const sql = {
-    text: `UPDATE ${schema}.offeredbys SET (${options}) WHERE course_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
-    values: courseNumber,
+    text: `UPDATE ${schema}.offeredbys SET ${options.join(',')} WHERE course_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
+    values: [courseNumber],
   };
   try {
     const response = await client.query(sql);
