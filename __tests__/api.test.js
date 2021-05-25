@@ -46,7 +46,7 @@ beforeAll(async (done) => {
       }
     });
     const sql = {
-      text: `WITH new_instructor AS (INSERT INTO test.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int) RETURNING instructor_id), new_primary_instructor AS (INSERT INTO test.primary_instructors(course_id,instructor_id) VALUES ${primaryInstructors.join(',')} ) INSERT INTO test.assistant_instructors(course_id,instructor_id) VALUES ${assistInstructors.join(',')} RETURNING instructor_id`,
+      text: `WITH new_instructor AS (INSERT INTO test.instructor_details(firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::int, $8::text, $9::int) RETURNING instructor_id), new_primary_instructor AS (INSERT INTO test.primary_instructors(course_id,instructor_id) VALUES ${primaryInstructors.join(',')}) INSERT INTO test.assistant_instructors(course_id,instructor_id) VALUES ${assistInstructors.join(',')} RETURNING instructor_id`,
       values: options,
     };
     try {
@@ -124,12 +124,12 @@ describe('Test CRUD requests for instructors', () => {
 
     const response = await request.post('/api/instructors').send(data);
     expect(response.status).toBe(200);
-    expect(response.body[0].instructor_id).toBe(1);
+    expect(response.body[0].instructor_id).toBe(3);
     done();
   });
 
   test('should be able to get all instructors for a course', async (done) => {
-    const response = await request.get('/api/instructors/2');
+    const response = await request.get('/api/instructors/3');
     expect(response.status).toBe(200);
     expect(response.body.length).toBe(2);
     done();
@@ -144,17 +144,16 @@ describe('Test CRUD requests for instructors', () => {
   test('should be able to read 1 primary instructor from instructors', async (done) => {
     const response = await request.get('/api/primaryinstructor/2');
     expect(response.status).toBe(200);
-    expect(response.body.firstname).toBe('Tester');
+    expect(response.body[0].firstname).toBe('Hosea');
     done();
   });
 
   test('should be able to update a document from instructors', async (done) => {
     const data = { firstname: 'EditedTester' };
-
     const response = await request.put('/api/instructors/3').send(data);
     expect(response.status).toBe(200);
-    expect(response.body.firstname).toBe('EditedTester');
-    const check = await request.get('/api/instructors/1').send(data);
+    expect(response.body[0].firstname).toBe('EditedTester');
+    const check = await request.get('/api/primaryinstructor/4').send(data);
     expect(check.body[0].firstname).toBe('EditedTester');
     done();
   });
@@ -169,7 +168,7 @@ describe('Test CRUD requests for instructors', () => {
   test('should be able to delete a document from instructors', async (done) => {
     const response = await request.del('/api/instructors/3');
     expect(response.status).toBe(200);
-    const check = await request.get('/api/instructors/3');
+    const check = await request.get('/api/instructors/4');
     expect(check.status).toBe(400);
     done();
   });
@@ -186,18 +185,17 @@ describe('Test CRUD requests for offeredBys', () => {
     const response = await request.post('/api/offeredbys').send(data);
     expect(response.status).toBe(200);
     expect(response.body[0].course_id).toBe(3);
-    expect(response.body[0].offeredby_id).toBe(2);
     done();
   });
 
-  test('should be able to read 1 document from offeredBys', async (done) => {
+  test('should be able to read 1 row from offeredBys', async (done) => {
     const response = await request.get('/api/offeredbys/3').send();
     expect(response.status).toBe(200);
     expect(response.body[0].offeredby_name).toBe('University of Pennsylvania');
     done();
   });
 
-  test('should return status code 400 if the course number is invalide', async (done) => {
+  test('should return status code 400 if the course number is invalid', async (done) => {
     const response = await request.put('/api/offeredbys/999').send();
     expect(response.status).toBe(400);
     done();
@@ -208,7 +206,7 @@ describe('Test CRUD requests for offeredBys', () => {
 
     const response = await request.put('/api/offeredbys/3').send(data);
     expect(response.status).toBe(200);
-    expect(response.body.offeredby_name).toBe('University of TESTEDIT');
+    expect(response.body[0].offeredby_name).toBe('University of TESTEDIT');
     const check = await request.get('/api/offeredbys/3').send();
     expect(check.body[0].offeredby_name).toBe('University of TESTEDIT');
     done();
@@ -252,7 +250,7 @@ describe('Test CRUD requests for testimonials', () => {
   });
 
   test('should return status code 400 if the course does not have a testimonial', async (done) => {
-    const response = await request.put('/api/testimonials/999').send();
+    const response = await request.get('/api/testimonials/999').send();
     expect(response.status).toBe(400);
     done();
   });
@@ -262,9 +260,9 @@ describe('Test CRUD requests for testimonials', () => {
 
     const response = await request.put('/api/testimonials/4').send(data);
     expect(response.status).toBe(200);
-    expect(response.body.username).toBe('TEST ZERO');
-    const check = await request.get('/api/testimonials/4').send();
-    expect(check.body[0].username).toBe('TEST ZERO');
+    expect(response.body[0].username).toBe('TEST ZERO');
+    const check = await request.get('/api/testimonials/1').send();
+    expect(check.body[1].username).toBe('TEST ZERO');
     done();
   });
 
