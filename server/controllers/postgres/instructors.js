@@ -88,7 +88,11 @@ const setInstructor = async (req, res) => {
   const id = parseInt(req.params.instructorid, 10);
   const options = [];
   Object.keys(req.body).forEach((key) => {
-    if (key !== 'num_ratings' || key !== 'learners') options.push(`${key}='${req.body[key]}'`);
+    if (key !== 'num_ratings' || key !== 'learners') {
+      options.push(`${key}='${req.body[key]}'`);
+    } else {
+      options.push(`${key}=${req.body[key]}`);
+    }
   });
   const sql = {
     text: `UPDATE ${schema}.instructor_details SET ${options.join(',')} WHERE instructor_id=${id}::int RETURNING ${Object.keys(req.body).join(',')}`,

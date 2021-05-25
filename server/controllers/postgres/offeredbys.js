@@ -42,7 +42,11 @@ const setOfferedBy = async (req, res) => {
   const courseNumber = parseInt(req.params.courseNumber, 10);
   const options = [];
   Object.keys(req.body).forEach((key) => {
-    if (key !== 'offeredby_id') options.push(`${key}='${req.body[key]}'`);
+    if (key !== 'offeredby_id') {
+      options.push(`${key}='${req.body[key]}'`);
+    } else {
+      options.push(`${key}=${req.body[key]}`);
+    }
   });
   const sql = {
     text: `UPDATE ${schema}.offeredbys SET ${options.join(',')} WHERE course_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,

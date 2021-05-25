@@ -26,7 +26,7 @@ const testimonialsInsert = async (req, res) => {
 const getTestimonials = async (req, res) => {
   const courseNumber = parseInt(req.params.courseNumber, 10);
   const sql = {
-    text: `SELECT * FROM ${schema}.testimonials WHERE course_id=${1}`,
+    text: `SELECT * FROM ${schema}.testimonials WHERE course_id=$1::int`,
     values: [courseNumber],
   };
   try {
@@ -39,13 +39,17 @@ const getTestimonials = async (req, res) => {
 };
 
 const setTestimonial = async (req, res) => {
-  const testimonialId = parseInt(req.params.testimonial_id, 10);
+  const testimonialId = parseInt(req.params.testimonialid, 10);
   const options = [];
-  Object.entries(req.body).forEach((key, val) => {
-    options.push(`${key}=${val}`);
+  Object.keys(req.body).forEach((key) => {
+    if (key !== 'course_id') {
+      options.push(`${key}='${req.body[key]}'`);
+    } else {
+      options.push(`${key}=${req.body[key]}`);
+    }
   });
   const sql = {
-    text: `UPDATE ${schema}.testimonials SET (${options}) WHERE testimonial_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
+    text: `UPDATE ${schema}.testimonials SET ${options.join(',')} WHERE testimonial_id=$1::int RETURNING ${Object.keys(req.body).join(',')}`,
     values: [testimonialId],
   };
   try {
@@ -58,7 +62,7 @@ const setTestimonial = async (req, res) => {
 };
 
 const deleteTestimonial = async (req, res) => {
-  const testimonialId = parseInt(req.params.testimonial_id, 10);
+  const testimonialId = parseInt(req.params.testimonialid, 10);
   const sql = {
     text: `DELETE FROM ${schema}.testimonials WHERE testimonial_id=$1::int RETURNING testimonial_id`,
     values: [testimonialId],
