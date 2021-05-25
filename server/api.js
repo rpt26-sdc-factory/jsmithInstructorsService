@@ -42,7 +42,7 @@ app.post('/api/testimonals', testimonialsInsert);
 app.get('/api/instructors/:courseNumber', getInstructors);
 app.get('/api/primaryinstructor/:courseNumber', getPrimaryInstructor);
 app.get('/api/offeredbys/:courseNumber', getOfferedBys);
-app.get('/api/testimonials/:courseNumbers', getTestimonials);
+app.get('/api/testimonials/:courseNumber', getTestimonials);
 
 // UPDATE
 app.put('/api/instructors/:instructorid', setInstructor);
