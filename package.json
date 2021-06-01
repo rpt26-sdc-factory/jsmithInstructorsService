@@ -17,9 +17,8 @@
     "benchmark:postgres": "node __tests__/postgres_benchmark.js",
     "test": "jest --detectOpenHandles --coverage",
     "start": "node server/index.js",
-    "react-dev": "webpack --watch",
-    "build": "webpack",
-    "build-prod": "webpack --mode=production"
+    "build": "webpack --watch",
+    "stress-test": "bash k6/stress-test.sh"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
