@@ -1,4 +1,5 @@
 /* eslint-disable import/no-dynamic-require */
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
