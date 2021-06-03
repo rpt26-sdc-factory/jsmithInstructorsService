@@ -34,3 +34,4 @@ db/seeders/*.json
 db/seeders/**/*.csv
 db/seeders/**/*.sql
 newrelic.js
+bundle.js
