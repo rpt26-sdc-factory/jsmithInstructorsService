@@ -2,7 +2,7 @@ import React from 'react';
 
 const Name = (props) => (
   <div className="offered-by-name">
-    {props.offeredByData.offeredByName}
+    {props.offeredByData.offeredby_name}
   </div>
 );
 
