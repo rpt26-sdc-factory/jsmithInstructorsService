@@ -8,8 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "generate:csv_id": "node db/generators/generate_csv_id.sh",
-    "generate:csv_noid": "node db/generators/generate_csv_noId.sh",
+    "generate": "bash db/generators/generate_csv_noId.sh",
     "seed": "psql -f db/seeders/postgres/seed.sql",
     "benchmark": "node __stress_tests__/db_benchmarking.js",
     "test": "jest --detectOpenHandles --coverage",
