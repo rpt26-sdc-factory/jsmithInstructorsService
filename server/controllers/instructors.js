@@ -5,6 +5,7 @@ const client = require('../../db/postgres/database.js');
 const schema = process.env.NODE_ENV === 'test' ? 'test' : 'coursera';
 
 const createInstructors = async (req, res) => {
+  const pool = await client.connect();
   const data = req.body;
   const options = [
     data.firstname,
@@ -47,44 +48,53 @@ const createInstructors = async (req, res) => {
     values: options,
   };
   try {
-    const response = await client.query(sql);
+    const response = await pool.query(sql);
     return res.send(response.rows);
   } catch (err) {
     return res.status(400).send(err.message);
+  } finally {
+    pool.release();
   }
 };
 
 const getInstructors = async (req, res) => {
+  const pool = await client.connect();
   const courseNumber = parseInt(req.params.courseNumber, 10);
   const sql = {
     text: `WITH ids AS (SELECT instructor_id, is_primary_instructor FROM ((SELECT instructor_id, 1 AS is_primary_instructor FROM ${schema}.primary_instructors WHERE course_id=$1::int) UNION ALL (SELECT instructor_id, 0 AS is_primary_instructor FROM ${schema}.assistant_instructors WHERE course_id=$1::int)) t) SELECT * FROM ${schema}.instructor_details t1 INNER JOIN (SELECT * FROM ids) t2 ON t1.instructor_id=t2.instructor_id`,
     values: [courseNumber],
   };
   try {
-    const response = await client.query(sql);
+    const response = await pool.query(sql);
     if (response.rows.length === 0) throw new Error('No instructors associated with the course number.');
     return res.send(response.rows);
   } catch (err) {
     return res.status(400).send(err.message);
+  } finally {
+    pool.release();
   }
 };
 
 const getPrimaryInstructor = async (req, res) => {
+  const pool = await client.connect();
   const courseId = parseInt(req.params.courseNumber, 10);
   const sql = {
     text: `SELECT * FROM ${schema}.instructor_details WHERE instructor_id IN (SELECT instructor_id FROM ${schema}.primary_instructors WHERE course_id=$1::int)`,
     values: [courseId],
   };
   try {
-    const response = await client.query(sql);
+    const response = await pool.query(sql);
     if (response.rows.length === 0) throw new Error('No primary instructor with the course number.');
     return res.send(response.rows);
   } catch (err) {
     return res.status(400).send(err.message);
+  } finally {
+    pool.release();
   }
 };
 
 const setInstructor = async (req, res) => {
+  const pool = await client.connect();
   const id = parseInt(req.params.instructorid, 10);
   const options = [];
   Object.keys(req.body).forEach((key) => {
@@ -99,26 +109,31 @@ const setInstructor = async (req, res) => {
     values: [],
   };
   try {
-    const response = await client.query(sql);
+    const response = await pool.query(sql);
     if (response.rows.length === 0) throw new Error('No instrutors found with matching id.');
     return res.send(response.rows);
   } catch (err) {
     return res.status(400).send(err.message);
+  } finally {
+    pool.connect();
   }
 };
 
 const deleteInstructor = async (req, res) => {
+  const pool = await client.connect();
   const id = parseInt(req.params.instructorid, 10);
   const sql = {
     text: `DELETE FROM ${schema}.instructor_details WHERE instructor_id=$1::int RETURNING instructor_id`,
     values: [id],
   };
   try {
-    const response = await client.query(sql);
+    const response = await pool.query(sql);
     if (response.rows.length === 0) throw new Error('No instrutors found with matching id.');
     return res.send(response.rows);
   } catch (err) {
     return res.status(400).send(err.message);
+  } finally {
+    pool.connect();
   }
 };
 
