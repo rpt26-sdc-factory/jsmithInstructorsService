@@ -59,5 +59,3 @@ while (count <= numBatches) {
 }
 const end = new Date();
 console.log('Time to complete: ', end - start, 'ms');
-
-module.exports = generateInstructors;
