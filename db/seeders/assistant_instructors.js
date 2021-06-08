@@ -38,10 +38,15 @@ const generateAssistantInstructors = (numCourses) => {
   const numberInserts = Math.floor(assistants.length / insertSize);
   for (let i = 0; i < numberInserts; i++) {
     const pool = await client.connect();
-    const sql = 'INSERT INTO coursera.assistant_instructors (course_id,instructor_id) SELECT course_id,instructor_id FROM json_populate_recordset(NULL::coursera.assistant_instructors, $1)';
-    const option = [JSON.stringify(assistants.slice(i * insertSize, (i + 1) * insertSize))];
-    await pool.query(sql, option);
-    pool.release();
+    try {
+      const sql = 'INSERT INTO coursera.assistant_instructors (course_id,instructor_id) SELECT course_id,instructor_id FROM json_populate_recordset(NULL::coursera.assistant_instructors, $1)';
+      const option = [JSON.stringify(assistants.slice(i * insertSize, (i + 1) * insertSize))];
+      await pool.query(sql, option);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      pool.release();
+    }
     process.stdout.clearLine();
     process.stdout.cursorTo(0);
     process.stdout.write(`--- Inserted ${(i + 1) * insertSize} ---\r`);

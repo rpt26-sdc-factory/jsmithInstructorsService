@@ -61,10 +61,15 @@ const generateInstructors = (totalInstructors) => {
   console.time('Insert 10 million instructors');
   while (numBatches > 0) {
     const pool = await client.connect();
-    const option = [JSON.stringify(generateInstructors(batchSize))];
-    const sql = 'INSERT INTO coursera.instructor_details (firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) SELECT firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings FROM json_populate_recordset(NULL::coursera.instructor_details, $1)';
-    await pool.query(sql, option);
-    pool.release();
+    try {
+      const option = [JSON.stringify(generateInstructors(batchSize))];
+      const sql = 'INSERT INTO coursera.instructor_details (firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings) SELECT firstname,middleinitial,lastname,academic_title,title,organization,learners,instructor_avg_rating,num_ratings FROM json_populate_recordset(NULL::coursera.instructor_details, $1)';
+      await pool.query(sql, option);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      pool.release();
+    }
     process.stdout.clearLine();
     process.stdout.cursorTo(0);
     process.stdout.write(`--- Inserted ${batchSize * (process.env.PRIMARY_RECORD_BATCH_NUM - numBatches)} ---\r`);
