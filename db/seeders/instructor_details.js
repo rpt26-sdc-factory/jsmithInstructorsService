@@ -77,5 +77,3 @@ const generateInstructors = (totalInstructors) => {
   }
   console.timeEnd('Insert 10 million instructors');
 })();
-
-module.exports = generateInstructors;
