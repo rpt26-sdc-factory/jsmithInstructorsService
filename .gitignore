@@ -29,9 +29,10 @@ dist/
 *.sh
 *.cer
 *.pem
+loaderio.txt
+newrelic.js
 bundle.js
+bundle.js*
 db/seeders/*.json
 db/seeders/**/*.csv
 db/seeders/**/*.sql
-newrelic.js
-bundle.js*
