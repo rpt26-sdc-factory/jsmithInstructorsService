@@ -16,19 +16,13 @@ CREATE TABLE IF NOT EXISTS coursera.instructor_details(
 CREATE TABLE IF NOT EXISTS coursera.assistant_instructors(
   assistant_id SERIAL PRIMARY KEY,
   course_id int,
-  instructor_id int REFERENCES coursera.instructor_details ON DELETE CASCADE
+  instructor_id int
 );
 
 CREATE TABLE IF NOT EXISTS coursera.primary_instructors(
   course_id int PRIMARY KEY NOT NULL,
-  instructor_id int REFERENCES coursera.instructor_details ON DELETE CASCADE
+  instructor_id int
 );
-
-CREATE INDEX index_assistant_instructors_course_id ON coursera.assistant_instructors(course_id);
-
-CREATE INDEX index_assistant_instructors_instructor_id ON coursera.assistant_instructors(instructor_id);
-
-CREATE INDEX index_primary_instructors_instructor_id ON coursera.primary_instructors(instructor_id);
 
 CREATE SCHEMA IF NOT EXISTS test;
 
@@ -48,16 +42,10 @@ CREATE TABLE IF NOT EXISTS test.instructor_details(
 CREATE TABLE IF NOT EXISTS test.assistant_instructors(
   assistant_id SERIAL PRIMARY KEY,
   course_id int,
-  instructor_id int REFERENCES test.instructor_details ON DELETE CASCADE
+  instructor_id int
 );
 
 CREATE TABLE IF NOT EXISTS test.primary_instructors(
   course_id int PRIMARY KEY NOT NULL,
-  instructor_id int REFERENCES test.instructor_details ON DELETE CASCADE
+  instructor_id int
 );
-
-CREATE INDEX index_assistant_instructors_course_id ON test.assistant_instructors(course_id);
-
-CREATE INDEX index_assistant_instructors_instructor_id ON test.assistant_instructors(instructor_id);
-
-CREATE INDEX index_primary_instructors_instructor_id ON test.primary_instructors(instructor_id);
