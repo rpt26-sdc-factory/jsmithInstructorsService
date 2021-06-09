@@ -8,6 +8,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "schema": "psql -f db/postgres/schema.sql",
+    "indexes": "psql -f db/postgres/indexes.sql",
     "generate:csv": "bash db/generators/generate_csv_noId.sh",
     "seed:csv": "psql -f db/seeders/seed.sql",
     "seed": "bash db/seeders/seed.sh",
