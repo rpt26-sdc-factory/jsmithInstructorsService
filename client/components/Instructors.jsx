@@ -84,7 +84,7 @@ const Instructors = () => {
       <div className="instructor-grid" id={gridClass}>
         {instructorsData.map((instructor, index) => {
         // set image while mapping, pass as props
-          const allCourses = instructor.courses.length || 0;
+          const allCourses = instructor.courses?.length || 0;
           let isPrimary = false;
           let image = primaryInstructorImage;
           // is instructor primary?
