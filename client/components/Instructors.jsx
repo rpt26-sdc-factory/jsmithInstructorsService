@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import initialState from './initialState';
 import Instructor from './Instructor.jsx';
 
-const instructorsUrl = '54.176.19.199';
+const instructorsUrl = '18.118.36.172';
 const imagesUrl = '54.176.19.199';
 
 const Instructors = () => {
@@ -84,10 +84,11 @@ const Instructors = () => {
       <div className="instructor-grid" id={gridClass}>
         {instructorsData.map((instructor, index) => {
         // set image while mapping, pass as props
+          const allCourses = instructor.courses.length || 0;
           let isPrimary = false;
           let image = primaryInstructorImage;
           // is instructor primary?
-          for (let i = 0; i < instructor.courses.length; i++) {
+          for (let i = 0; i < allCourses; i++) {
             if (instructor.courses[i].courseNumber === courseNumber) {
               isPrimary = true;
             }

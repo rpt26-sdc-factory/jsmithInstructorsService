@@ -4,15 +4,15 @@
 import React from 'react';
 
 const Details = (props) => {
-  const instructorAcademicTitle = props.instructor.academicTitle === 'PhD' ? 'Dr. ' : '';
-  const courses = props.instructor.courses.length === 1 ? 'Course' : 'Courses';
+  const instructorAcademicTitle = props.instructor.academic_title === 'PhD' ? 'Dr. ' : '';
+  const courses = props.instructor.courses?.length === 1 ? 'Course' : 'Courses';
   return (
     <div className="instructor-details">
       <div className="instructor-name">
-        {`${instructorAcademicTitle}${props.instructor.firstName} ${props.instructor.lastName}`}
+        {`${instructorAcademicTitle}${props.instructor.firstname} ${props.instructor.lastname}`}
       </div>
       <div className="instructor-title">
-        {props.instructor.academicTitle}
+        {props.instructor.academic_title}
       </div>
       <div className="instructor-org">
         {props.instructor.organization}
@@ -27,7 +27,7 @@ const Details = (props) => {
         <svg className="instructor-coursesSVG" viewBox="0 0 80 80" height="18px" width="18px">
           <path d={props.svgs.coursesSVG}></path>
         </svg>
-        {`${props.instructor.courses.length} ${courses}`}
+        {`${props.instructor.courses?.length || 0} ${courses}`}
       </div>
     </div>
   );
