@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/extensions */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-undef */
@@ -6,12 +8,11 @@ import React, { useState, useEffect } from 'react';
 import initialState from './initialState';
 import Instructor from './Instructor.jsx';
 
-const instructorsUrl = '18.118.36.172';
-const imagesUrl = '54.176.19.199';
+const instructorsUrl = process.env.SERVER_HOST || 'localhost';
+const imagesUrl = process.env.IMAGES_HOST || 'localhost';
 
-const Instructors = () => {
-  const splitPath = window.location.pathname.split('/')[1];
-  const course = splitPath || 1;
+const Instructors = (props) => {
+  const course = props.course || window.location.pathname.split('/')[1];
   const [courseNumber] = useState(course);
   const [instructorsData, setInstructorsData] = useState(initialState.instructorsData);
   const [primaryInstructorImage, setPrimaryInstructorImage] = useState('');
