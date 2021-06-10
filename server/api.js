@@ -25,7 +25,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
-app.use('/loaderio.txt', express.static(path.join(__dirname, '../loaderio.txt')));
+app.use(`/${process.env.LOADERIO}.txt`, express.static(path.join(__dirname, `../${process.env.LOADERIO}.txt`)));
 app.use(cors());
 
 app.get('/:courseNumber', (req, res) => {
