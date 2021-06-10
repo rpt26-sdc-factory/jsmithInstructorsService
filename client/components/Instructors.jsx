@@ -71,7 +71,7 @@ const Instructors = () => {
           </svg>
         </span>
         <span className="instructors-ratings">
-          {`${instructorsData[0].instructorAverageRating}/5 (${instructorsData[0].numberOfRatings} Ratings)`}
+          {`${instructorsData[0].instructor_avg_rating}/5 (${instructorsData[0].num_ratings} Ratings)`}
         </span>
         <span>
           <svg className="instructors-infoSVG" viewBox="0 0 80 80" height="30px" width="30px">
