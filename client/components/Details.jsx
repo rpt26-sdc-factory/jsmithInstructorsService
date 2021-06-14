@@ -27,7 +27,7 @@ const Details = (props) => {
         <svg className="instructor-coursesSVG" viewBox="0 0 80 80" height="18px" width="18px">
           <path d={props.svgs.coursesSVG}></path>
         </svg>
-        {`${props.instructor.courses?.length || 0} ${courses}`}
+        {`${props.instructor?.courses?.length || 0} ${courses}`}
       </div>
     </div>
   );
