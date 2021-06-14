@@ -36,3 +36,5 @@ bundle.js*
 db/seeders/*.json
 db/seeders/**/*.csv
 db/seeders/**/*.sql
+server/server.js
+client/components/instructors.js
