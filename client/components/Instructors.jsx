@@ -8,12 +8,12 @@ import React, { useState, useEffect } from 'react';
 import initialState from './initialState';
 import Instructor from './Instructor.jsx';
 
-const instructorsUrl = process.env.SERVER_HOST || 'localhost';
-const imagesUrl = process.env.IMAGES_HOST || 'localhost';
+const instructorsUrl = 'localhost';
+const imagesUrl = 'localhost';
 
 const Instructors = (props) => {
   const course = props.course || window.location.pathname.split('/')[1];
-  const [courseNumber] = useState(course);
+  const [courseNumber] = useState(props.course);
   const [instructorsData, setInstructorsData] = useState(initialState.instructorsData);
   const [primaryInstructorImage, setPrimaryInstructorImage] = useState('');
   const [additionalInstructorImages, setAdditionalInstructorImages] = useState([{ instructorId: 0, instructorImage: '' }]);
