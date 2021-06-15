@@ -43,7 +43,6 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.get('/:courseNumber', async (req, res) => {
   try {
     const props = await serverSideRender(req);
-    console.log('regular get request: ', req.params)
     fs.readFile(path.resolve('./public/index.html'), 'utf8', (err, data) => {
       if (err) return res.status(500).send('Page could not be loaded!');
       const component = React.createElement(Instructors, props);
@@ -56,7 +55,6 @@ app.get('/:courseNumber', async (req, res) => {
 });
 
 app.get('/:courseNumber/innerHTML', async (req, res) => {
-  console.log('innerHTML: ', req.params);
   try {
     const props = await serverSideRender(req);
     const component = React.createElement(Instructors, props);
