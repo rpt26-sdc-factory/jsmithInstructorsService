@@ -61,7 +61,7 @@ app.get('/:courseNumber/innerHTML', async (req, res) => {
     const props = await serverSideRender(req);
     const component = React.createElement(Instructors, props);
     const rendered = ReactDOMServer.renderToString(component);
-    res.send(rendered);
+    res.send(`{$rendered}`);
   } catch (err) {
     res.status(500).send(err)
   }
