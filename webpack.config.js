@@ -7,11 +7,6 @@ const client = {
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    library: 'instructors',
-    libraryExport: 'default',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
-    globalObject: 'this',
   },
   module: {
     rules: [
