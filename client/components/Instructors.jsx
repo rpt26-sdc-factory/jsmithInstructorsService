@@ -12,98 +12,51 @@ const instructorsUrl = 'localhost';
 const imagesUrl = 'localhost';
 
 const Instructors = (props) => {
-  const course = props.course || window.location.pathname.split('/')[1];
-  const [courseNumber] = useState(props.course);
-  const [instructorsData, setInstructorsData] = useState(initialState.instructorsData);
-  const [primaryInstructorImage, setPrimaryInstructorImage] = useState('');
-  const [additionalInstructorImages, setAdditionalInstructorImages] = useState([{ instructorId: 0, instructorImage: '' }]);
-  const [label, setLabel] = useState('Instructor');
-  const [svgs, setSvgs] = useState(initialState.svgs);
-  // const [windowSize, setWindowSize] = useState(window.innerWidth);
-  const [gridClass, setGridClass] = useState('instructor-grid-small');
-  const windowSizeGetter = () => {
-    if (window.innerWidth <= 1040) {
-      setGridClass('instructor-grid-small');
-    } else if (window.innerWidth > 1040) {
-      setGridClass('instructor-grid-large');
-    }
-  };
-  // GET and set instructors data for this course as state
-  useEffect(() => {
-    windowSizeGetter();
-    window.addEventListener('resize', windowSizeGetter);
-
-    fetch(`http://${instructorsUrl}:3003/api/instructors/${courseNumber}`)
-      .then((response) => response.json())
-      .then((json) => {
-        setInstructorsData(json);
-        const newLabel = json.length > 1 ? 'Instructors' : 'Instructor';
-        setLabel(newLabel);
-      })
-      .catch((err) => { if (err) { console.error(err); } });
-    fetch(`http://${imagesUrl}:3006/api/image/${courseNumber}/primaryInstructor`)
-      .then((response) => response.json())
-      .then((json) => {
-        setPrimaryInstructorImage(json.primaryInstructor);
-      })
-      .catch((err) => { if (err) { console.error(err); } });
-    fetch(`http://${imagesUrl}:3006/api/image/${courseNumber}/additionalInstructors`)
-      .then((response) => response.json())
-      .then((json) => {
-        setAdditionalInstructorImages(json.additionalInstructors);
-      })
-      .catch((err) => { if (err) { console.error(err); } });
-    fetch(`http://${imagesUrl}:3006/api/svgs`)
-      .then((response) => response.json())
-      .then((json) => { setSvgs(json); })
-      .catch((err) => { if (err) { console.error(err); } });
-  }, []);
-
   return (
     <div className="instructors">
       <div className="instructor-label">
-        {label}
+        {props.label}
       </div>
       <span className="instructors-rating">
         {'Instructor rating '}
         <span>
           <svg className="instructors-svg" viewBox="0 0 90 90">
-            <path d={svgs.instructorSVG} />
+            <path d={props.svgs?.instructorSVG} />
           </svg>
         </span>
         <span className="instructors-ratings">
-          {`${instructorsData[0].instructor_avg_rating}/5 (${instructorsData[0].num_ratings} Ratings)`}
+          {`${props.instructorsData[0].instructor_avg_rating}/5 (${props.instructorsData[0].num_ratings} Ratings)`}
         </span>
         <span>
           <svg className="instructors-infoSVG" viewBox="0 0 80 80" height="30px" width="30px">
-            <path d={svgs.infoSVG.i} />
-            <path d={svgs.infoSVG.dot} />
-            <polygon points={svgs.infoSVG.circle} />
+            <path d={props.svgs?.infoSVG?.i} />
+            <path d={props.svgs?.infoSVG?.dot} />
+            <polygon points={props.svgs?.infoSVG?.circle} />
           </svg>
         </span>
       </span>
-      <div className="instructor-grid" id={gridClass}>
-        {instructorsData.map((instructor, index) => {
+      <div className="instructor-grid" id={props.gridClass}>
+        {props.instructorsData.map((instructor, index) => {
         // set image while mapping, pass as props
           const allCourses = instructor.courses?.length || 0;
           let isPrimary = false;
-          let image = primaryInstructorImage;
+          let image = props.primaryInstructorImage;
           // is instructor primary?
           for (let i = 0; i < allCourses; i++) {
-            if (instructor.courses[i].courseNumber === courseNumber) {
+            if (instructor.courses[i].courseNumber === props.courseNumber) {
               isPrimary = true;
             }
           }
           // if instructor is not primary, find and set image in additionalInstructors
           if (!isPrimary) {
-            for (let i = 0; i < additionalInstructorImages.length; i++) {
-              if (instructor.id === additionalInstructorImages[i].instructorId) {
-                image = additionalInstructorImages[i].instructorImage;
+            for (let i = 0; i < props.additionalInstructorImages?.length; i++) {
+              if (instructor.id === props.additionalInstructorImages[i]?.instructorId) {
+                image = props.additionalInstructorImages[i]?.instructorImage;
                 break;
               }
             }
           }
-          return <Instructor key={'instructor'.concat(index)} image={image} instructor={instructor} svgs={svgs} courseNumber={courseNumber} />;
+          return <Instructor key={'instructor'.concat(index)} image={image} instructor={instructor} svgs={props.svgs} courseNumber={props.courseNumber} />;
         })}
       </div>
     </div>
