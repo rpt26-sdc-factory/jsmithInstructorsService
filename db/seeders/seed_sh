@@ -1,0 +1,3 @@
+node ../db/seeders/instructor_details.js
+node ../db/seeders/primary_instructors.js
+node ../db/seeders/assistant_instructors.js
