@@ -42,7 +42,6 @@ app.use(cors());
 
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.get('/loaderio', getLoaderio);
-app.post('/loaderio', postLoaderio);
 
 app.get('/:courseNumber', async (req, res) => {
   try {

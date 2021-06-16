@@ -8,9 +8,6 @@ import React, { useState, useEffect } from 'react';
 import initialState from './initialState';
 import Instructor from './Instructor.jsx';
 
-const instructorsUrl = 'localhost';
-const imagesUrl = 'localhost';
-
 const Instructors = (props) => {
   return (
     <div className="instructors">
