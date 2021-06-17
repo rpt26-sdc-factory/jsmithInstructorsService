@@ -27,8 +27,6 @@ const {
   deleteInstructor,
 } = require('./controllers.js');
 const serverSideRender = require('./serverSideRender.js');
-const getLoaderio = require('../__stress_tests__/loaderio_getRequests.js');
-const postLoaderio = require('../__stress_tests__/loaderio_postRequests.js');
 
 const app = express();
 
@@ -41,7 +39,6 @@ app.use(`/${process.env.LOADERIO}.txt`, express.static(path.join(__dirname, `../
 app.use(cors());
 
 app.get('/favicon.ico', (req, res) => res.status(204).end());
-app.get('/loaderio', getLoaderio);
 
 app.get('/:courseNumber', async (req, res) => {
   try {
