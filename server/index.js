@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable no-console */
 /* eslint-disable radix */
+require('newrelic');
 require('dotenv').config();
 require('@babel/register')({
   ignore: [/(node_modules)/],
