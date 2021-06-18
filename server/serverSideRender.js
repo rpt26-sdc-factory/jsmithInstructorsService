@@ -1,7 +1,8 @@
 const axios = require('axios');
 
-const instructorsUrl = 'localhost';
-const imagesUrl = 'localhost';
+const port = process.env.SERVER_PORT || 3003;
+const server = process.env.SERVER_HOST  || 'localhost';
+const imagesUrl = process.env.IMAGES_HOST || 'localhost';
 
 const serverSideRender = async (req, res) => {
   const props = {};
@@ -9,7 +10,7 @@ const serverSideRender = async (req, res) => {
   try {
     props.courseNumber = req.params.courseNumber;
 
-    const instructorsData = await axios.get(`http://${instructorsUrl}:3003/api/instructors/${props.courseNumber}`)
+    const instructorsData = await axios.get(`http://${server}:${port}/api/instructors/${props.courseNumber}`)
     props.instructorsData = instructorsData.data;
     props.label = instructorsData.data.length > 1 ? 'Instructors' : 'Instructor';
 
