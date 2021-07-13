@@ -29,7 +29,12 @@ dist/
 *.sh
 *.cer
 *.pem
+loaderio.txt
+newrelic.js
 bundle.js
+bundle.js*
 db/seeders/*.json
 db/seeders/**/*.csv
 db/seeders/**/*.sql
+server/server.js
+client/components/instructors.js
