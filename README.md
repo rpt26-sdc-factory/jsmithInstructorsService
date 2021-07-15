@@ -27,8 +27,6 @@ This repo provides back-end system design for the Instructors module of Coursera
 
 - Node
 - PostgreSQL
-- NGINX (load balancing)
-- Redis (caching)
 - Webpack/Webpack-CLI
 
 ## API
@@ -63,6 +61,24 @@ Endpoint | Description
 The schema sets up 3 tables. An `instructor_details` table that contains isntructor information, a `primary_instructors` table that contains a list of courses and their primary instructors, and lastly a `assistant_instructors` table that contains courses and their assistant instructors and their assistant instructor ID. `instructor_details` is referenced in the other 2 tables.
 
 ![Database schema](https://vbao-readme-screenshots.s3.us-west-1.amazonaws.com/sdc_postgresql_schema.png)
+
+### Using Postgres as a Database
+
+Using Postgres.app for MacOS you can initialize a terminal for a server, or a PATH can be set for a regular terminal to initialize Postgres via `psql`.
+
+To load the schema into Postgres we load the schema file into the terminal.
+
+```bash
+psql -f /path/schema.sql
+```
+
+While inside the `psql` terminal, `\dn` will list all schemas in the server.
+
+To change schema, you can type `SET search_path TO schema_name`.
+
+To check the table settings, you can type `\d table_name` to "DESCRIBE" the table.
+
+If inserting bulk data, only run the `indexes.sql` file after inserting data.
 
 ## Development
 
