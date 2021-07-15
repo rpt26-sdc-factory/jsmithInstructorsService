@@ -34,7 +34,7 @@ const Instructors = (props) => {
       </span>
       <div className="instructor-grid" id={props.gridClass}>
         {props.instructorsData.map((instructor, index) => {
-        // set image while mapping, pass as props
+
           const allCourses = instructor.courses?.length || 0;
           let isPrimary = false;
           let image = props.primaryInstructorImage;
@@ -44,7 +44,7 @@ const Instructors = (props) => {
               isPrimary = true;
             }
           }
-          // if instructor is not primary, find and set image in additionalInstructors
+
           if (!isPrimary) {
             for (let i = 0; i < props.additionalInstructorImages?.length; i++) {
               if (instructor.id === props.additionalInstructorImages[i]?.instructorId) {
