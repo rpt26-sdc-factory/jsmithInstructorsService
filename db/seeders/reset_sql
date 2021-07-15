@@ -1,3 +1,0 @@
-DROP SCHEMA coursera CASCADE;
-DROP SCHEMA test CASCADE;
-\i /Users/rieuna/Documents/GitHub/vbao-instructor-service/db/postgres/schema.sql;
